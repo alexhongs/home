@@ -8,8 +8,8 @@
 
 #import <UIKit/UIKit.h>
 #import <HomeKit/HomeKit.h>
-@interface ViewController : UIViewController
-
+@interface HomeViewController : UICollectionViewController
+    @property (strong, atomic) HMHomeManager *homeManager;
 
 @end
 
