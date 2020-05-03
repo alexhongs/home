@@ -1,2 +1,2 @@
-# home
-Home Application
+# iHome
+iHome Application for controlling HomeKit Devices
