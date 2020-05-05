@@ -3,6 +3,7 @@
     <device id="retina5_5" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -15,12 +16,12 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
-                        <segue destination="2ZB-iY-mZr" kind="relationship" relationship="rootViewController" id="WKT-kA-vT9"/>
+                        <segue destination="7Lx-0A-W3k" kind="relationship" relationship="rootViewController" id="KRA-Q8-Dyk"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ADD-7b-pVs" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-967" y="113"/>
+            <point key="canvasLocation" x="-1038" y="-234"/>
         </scene>
         <!--Home-->
         <scene sceneID="rPc-T0-ME8">
@@ -107,7 +108,16 @@
                             <outlet property="delegate" destination="2ZB-iY-mZr" id="bdj-CQ-Lm1"/>
                         </connections>
                     </collectionView>
-                    <navigationItem key="navigationItem" title="Home" id="8ff-PY-nBC"/>
+                    <navigationItem key="navigationItem" title="Home" id="8ff-PY-nBC">
+                        <barButtonItem key="rightBarButtonItem" title="Add Home" id="Tv9-99-sa8">
+                            <connections>
+                                <action selector="addHome:" destination="2ZB-iY-mZr" id="zAj-FQ-dZB"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <segue destination="Qat-Mr-z2J" kind="presentation" modalPresentationStyle="fullScreen" id="lYU-Da-dYb"/>
+                    </connections>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Zb4-fj-Ur3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -190,10 +200,57 @@
                             <outlet property="delegate" destination="Qat-Mr-z2J" id="e4b-rT-AjR"/>
                         </connections>
                     </collectionView>
+                    <navigationItem key="navigationItem" id="cXF-it-lk9"/>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eAo-Wu-3zu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="454" y="113"/>
+        </scene>
+        <!--Root View Controller-->
+        <scene sceneID="vvy-Kb-8zP">
+            <objects>
+                <viewController id="7Lx-0A-W3k" customClass="RootViewController" customModule="iHome" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="3hf-mP-3h7">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="This is Root View Controller" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CFB-wj-I5U">
+                                <rect key="frame" x="0.0" y="66" width="414" height="39"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="39" id="OsA-nO-Chc"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1Pd-6v-4QG">
+                                <rect key="frame" x="146" y="639" width="122" height="48"/>
+                                <color key="backgroundColor" systemColor="linkColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="30"/>
+                                <state key="normal" title="Submit">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="submit:" destination="7Lx-0A-W3k" eventType="touchUpInside" id="oZj-CO-rrR"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="0.8731703656468488" green="1" blue="0.85817926927672006" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="1Pd-6v-4QG" firstAttribute="leading" secondItem="mAV-Nh-RDp" secondAttribute="leading" constant="146" id="2U3-Ip-ASJ"/>
+                            <constraint firstItem="1Pd-6v-4QG" firstAttribute="centerX" secondItem="CFB-wj-I5U" secondAttribute="centerX" id="4Hz-kA-lb7"/>
+                            <constraint firstItem="1Pd-6v-4QG" firstAttribute="centerX" secondItem="3hf-mP-3h7" secondAttribute="centerX" id="UmY-i8-4SQ"/>
+                            <constraint firstItem="CFB-wj-I5U" firstAttribute="leading" secondItem="mAV-Nh-RDp" secondAttribute="leading" id="eZ1-o4-vFP"/>
+                            <constraint firstItem="CFB-wj-I5U" firstAttribute="top" secondItem="mAV-Nh-RDp" secondAttribute="top" constant="22" id="rqY-I9-E9Z"/>
+                            <constraint firstItem="mAV-Nh-RDp" firstAttribute="bottom" secondItem="1Pd-6v-4QG" secondAttribute="bottom" constant="49" id="zXe-hy-avM"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="mAV-Nh-RDp"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Root View Controller" id="eRt-0m-jsT"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="SPQ-34-5sM" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-975.36231884057975" y="646.46739130434787"/>
         </scene>
     </scenes>
     <resources>

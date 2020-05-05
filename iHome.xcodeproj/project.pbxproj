@@ -14,6 +14,7 @@
 		93132E64245E548E00776675 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 93132E63245E548E00776675 /* Assets.xcassets */; };
 		93132E67245E548E00776675 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 93132E65245E548E00776675 /* LaunchScreen.storyboard */; };
 		93132E6A245E548E00776675 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 93132E69245E548E00776675 /* main.m */; };
+		936058B1246107DE008D3977 /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 936058B0246107DE008D3977 /* RootViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,6 +30,8 @@
 		93132E66245E548E00776675 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		93132E68245E548E00776675 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		93132E69245E548E00776675 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		936058B0246107DE008D3977 /* RootViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RootViewController.m; sourceTree = "<group>"; };
+		936058B224610817008D3977 /* RootViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RootViewController.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,6 +75,8 @@
 				93132E65245E548E00776675 /* LaunchScreen.storyboard */,
 				93132E68245E548E00776675 /* Info.plist */,
 				93132E69245E548E00776675 /* main.m */,
+				936058B224610817008D3977 /* RootViewController.h */,
+				936058B0246107DE008D3977 /* RootViewController.m */,
 			);
 			path = iHome;
 			sourceTree = "<group>";
@@ -150,6 +155,7 @@
 				93132E59245E548900776675 /* AppDelegate.m in Sources */,
 				93132E6A245E548E00776675 /* main.m in Sources */,
 				93132E5C245E548900776675 /* SceneDelegate.m in Sources */,
+				936058B1246107DE008D3977 /* RootViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

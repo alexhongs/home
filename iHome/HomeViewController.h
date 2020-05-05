@@ -10,6 +10,6 @@
 #import <HomeKit/HomeKit.h>
 @interface HomeViewController : UICollectionViewController
     @property (strong, atomic) HMHomeManager *homeManager;
-
+    @property (strong, atomic) NSMutableArray *homes;
 @end
 
