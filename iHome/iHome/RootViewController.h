@@ -12,6 +12,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface RootViewController : UIViewController
 
+@property (nonatomic) int rvc;
+
 @end
 
 NS_ASSUME_NONNULL_END
