@@ -10,7 +10,7 @@
         <!--Root View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="RootViewController" customModule="iHome" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="RootViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -22,16 +22,23 @@
                                 <state key="normal" title="Button">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
-                                <connections>
-                                    <action selector="buttonClicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="W5f-DX-gxh"/>
-                                </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yHT-v7-AUc">
+                                <rect key="frame" x="156" y="342" width="103" height="53"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="44"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
+                            <constraint firstItem="yHT-v7-AUc" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="156" id="5Vc-au-rYj"/>
                             <constraint firstItem="CFF-Kb-Pw0" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="640" id="9uR-by-I6z"/>
+                            <constraint firstItem="yHT-v7-AUc" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="342" id="PyL-1l-HvD"/>
                             <constraint firstItem="CFF-Kb-Pw0" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="140" id="cRi-Y4-oNu"/>
                             <constraint firstItem="CFF-Kb-Pw0" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="idE-mp-yTf"/>
+                            <constraint firstItem="yHT-v7-AUc" firstAttribute="centerX" secondItem="CFF-Kb-Pw0" secondAttribute="centerX" id="mf6-2T-0wB"/>
+                            <constraint firstItem="yHT-v7-AUc" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="ns8-cK-9bm"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="CFF-Kb-Pw0" secondAttribute="bottom" constant="53" id="oqs-nD-gad"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>

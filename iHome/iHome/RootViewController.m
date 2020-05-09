@@ -16,10 +16,14 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.rvc = 5;
+    
     NSLog(@"RootViewContoller - View Did Load");
     // Do any additional setup after loading the view.
+    
+//    NSLog(@"RootViewController - UILabel: %s", self.label.attributedText);
 }
+
+
 
 /*
 #pragma mark - Navigation

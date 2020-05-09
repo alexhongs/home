@@ -16,18 +16,6 @@
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    
-//    self.window = UIWindow.new;
-//    self.window = [[UIWindow alloc] initWithFrame: [[UIScreen mainScreen] bounds]];
-//    [self.window makeKeyAndVisible];
-//    
-    RootViewController *vc = [[RootViewController alloc] init];
-    vc.rvc = 15213;
-    NSLog(@"RVC object in AppDelegate %d",vc.rvc);
-//    self.window.rootViewController = vc;
-    
-//    NSLog(self.window.description);
-    
     // Override point for customization after application launch.
     return YES;
 }
