@@ -23,6 +23,10 @@
 //    NSLog(@"RootViewController - UILabel: %s", self.label.attributedText);
 }
 
+- (IBAction)addHome:(UIButton *)sender {
+    NSLog(@"Add Home Clicked %@", sender.currentTitle);
+    [self performSegueWithIdentifier:@"toAccessory" sender:sender];
+}
 
 
 /*
