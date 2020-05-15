@@ -10,13 +10,16 @@
 #import <HomeKit/HomeKit.h>
 NS_ASSUME_NONNULL_BEGIN
 
-@interface RootViewController : UIViewController<HMHomeManagerDelegate, HMHomeDelegate>
+@interface RootViewController : UIViewController<HMHomeManagerDelegate, HMHomeDelegate, UICollectionViewDelegate, UICollectionViewDataSource>
 
 @property (nonatomic, strong) HMHomeManager *homeManager;
 @property (nonatomic, strong) HMHome *home;
 @property (nonatomic, strong) NSArray<HMHome *> *homes;
 
-- (IBAction) addHome:(id)sender;
+@property (strong, nonatomic) IBOutlet UICollectionView *collectionView;
+
+
+- (IBAction) buttonClicked:(id)sender;
 @end
 
 NS_ASSUME_NONNULL_END
