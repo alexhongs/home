@@ -10,7 +10,6 @@
         <!--Navigation Controller-->
         <scene sceneID="aOe-fL-ord">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="JbB-YA-q4O" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <navigationController id="6pL-j9-bGc" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="CeU-jB-Nj8">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
@@ -20,6 +19,7 @@
                         <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="SWB-g0-rt0"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="JbB-YA-q4O" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-758" y="139"/>
         </scene>

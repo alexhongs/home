@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import <HomeKit/HomeKit.h>
 #import "RootViewController.h"
 
 @interface AppDelegate ()

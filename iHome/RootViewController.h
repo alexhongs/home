@@ -7,10 +7,16 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import <HomeKit/HomeKit.h>
 NS_ASSUME_NONNULL_BEGIN
 
-@interface RootViewController : UIViewController
+@interface RootViewController : UIViewController<HMHomeManagerDelegate, HMHomeDelegate>
+
+@property (nonatomic, strong) HMHomeManager *homeManager;
+@property (nonatomic, strong) HMHome *home;
+@property (nonatomic, strong) NSArray<HMHome *> *homes;
+
+- (IBAction) addHome:(id)sender;
 @end
 
 NS_ASSUME_NONNULL_END
