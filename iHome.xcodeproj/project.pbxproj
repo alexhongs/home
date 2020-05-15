@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9303A220246E2C500053EE06 /* HomeKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9303A21F246E2C500053EE06 /* HomeKit.framework */; };
 		934D02B024627F70005B2098 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 934D02AF24627F70005B2098 /* AppDelegate.m */; };
 		934D02B324627F70005B2098 /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 934D02B224627F70005B2098 /* SceneDelegate.m */; };
 		934D02B924627F70005B2098 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 934D02B724627F70005B2098 /* Main.storyboard */; };
@@ -19,6 +20,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		9303A21D246E2BF80053EE06 /* iHome.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = iHome.entitlements; sourceTree = "<group>"; };
+		9303A21F246E2C500053EE06 /* HomeKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HomeKit.framework; path = System/Library/Frameworks/HomeKit.framework; sourceTree = SDKROOT; };
 		934D02AB24627F70005B2098 /* iHome.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iHome.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		934D02AE24627F70005B2098 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		934D02AF24627F70005B2098 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -41,17 +44,27 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9303A220246E2C500053EE06 /* HomeKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9303A21E246E2C500053EE06 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				9303A21F246E2C500053EE06 /* HomeKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		934D02A224627F70005B2098 = {
 			isa = PBXGroup;
 			children = (
 				934D02AD24627F70005B2098 /* iHome */,
 				934D02AC24627F70005B2098 /* Products */,
+				9303A21E246E2C500053EE06 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -80,6 +93,7 @@
 				934D02D124628B3C005B2098 /* RootViewController.m */,
 				934D02D324628BBB005B2098 /* Person.h */,
 				934D02D424628BBB005B2098 /* Person.m */,
+				9303A21D246E2BF80053EE06 /* iHome.entitlements */,
 			);
 			path = iHome;
 			sourceTree = "<group>";
@@ -299,6 +313,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = iHome/iHome.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 5UY85AYC97;
 				INFOPLIST_FILE = iHome/Info.plist;
@@ -316,6 +331,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = iHome/iHome.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 5UY85AYC97;
 				INFOPLIST_FILE = iHome/Info.plist;
