@@ -1,5 +1,6 @@
 #userdata
 iHome.xcodeproj/project.xcworkspace/xcuserdata/*
+iHome.xcodeproj/xcuserdata
 
 # Xcode
 build/

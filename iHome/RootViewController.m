@@ -41,11 +41,21 @@
 
 - (void)addHomes:(NSArray<HMHome *>*) homes {
     self.homes = homes;
+    [self printHomes];
+}
+
+-(void)printHomes {
     NSLog(@"Homes List");
     for (HMHome *home in self.homes) {
         NSLog(@"Home: %@", home.name);
         for (HMAccessory *accessory in home.accessories) {
-            NSLog(@"Home Accessory: %@", accessory.name);
+            NSLog(@"- Home Accessory: %@, room : %@", accessory.name, accessory.room.name);
+            for(HMService *service in accessory.services) {
+//                NSLog(@"- - Home Service: %@", service.name);
+                for(HMCharacteristic *characteristic in service.characteristics) {
+//                    NSLog(@"- - - Home Characteristic: %@", characteristic.localizedDescription);
+                }
+            }
         }
     }
 }
@@ -66,6 +76,7 @@
     NSLog(@"Change occured at homes!");
     [self addHomes:self.homeManager.homes];
     self.homeLabel.title = self.homeManager.primaryHome.name;
+    self.collectionView.reloadData;
 }
 
 #pragma mark - HMHomeDelegate
@@ -79,20 +90,48 @@
 
 #pragma mark - UICollectionViewDataSource
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
-    return 1 ;
+    return 1;
 }
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    return 200;
+    return self.homeManager.primaryHome.accessories.count;
 }
 
+/**
+ Get all accessories of primary home into cells
+ */
 - (__kindof UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
 
     UICollectionViewCell *item = [self.collectionView dequeueReusableCellWithReuseIdentifier:@"collectionCell" forIndexPath:indexPath];
-    
-    item.backgroundColor = UIColor.blueColor;
+    UILabel *label = [item viewWithTag:100];
+    label.text = self.homeManager.primaryHome.accessories[indexPath.row].name;
+    item.backgroundColor = UIColor.lightGrayColor;
     return item;
 }
 
 #pragma mark - UIColectionViewDelegate
+
+- (void) collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
+    UICollectionViewCell *cell = [collectionView cellForItemAtIndexPath:indexPath];
+    UILabel *cellLabel = [cell viewWithTag:100];
+    
+    HMAccessory *selected = self.homeManager.primaryHome.accessories[indexPath.row];
+    NSLog(@"Selected Item at %@ : %@", cellLabel.text, selected.name);
+}
+
+/**
+ Triggered when cell item is pressed
+ */
+- (void)collectionView:(UICollectionView *)collectionView didHighlightItemAtIndexPath:(NSIndexPath *)indexPath {
+    UICollectionViewCell *cell = [collectionView cellForItemAtIndexPath:indexPath];
+    cell.backgroundColor = UIColor.darkGrayColor;
+}
+
+/**
+Triggered when cell item is released
+*/
+- (void)collectionView:(UICollectionView *)collectionView didUnhighlightItemAtIndexPath:(NSIndexPath *)indexPath {
+    UICollectionViewCell *cell = [collectionView cellForItemAtIndexPath:indexPath];
+    cell.backgroundColor = UIColor.lightGrayColor;
+}
 
 @end
