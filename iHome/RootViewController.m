@@ -7,6 +7,7 @@
 //
 
 #import "RootViewController.h"
+#import "AccessoryViewController.h"
 
 @interface RootViewController ()
 @property (strong, nonatomic) IBOutlet UINavigationItem *homeLabel;
@@ -25,10 +26,6 @@
     self.collectionView.dataSource = self;
 }
 
-- (IBAction) buttonClicked:(id)sender {
-    NSLog(@"Button Clicked");
-}
-
 - (void)addHome:(NSString *) name {
     [self.homeManager addHomeWithName:name completionHandler:^(HMHome * _Nullable home, NSError * _Nullable error) {
         if(error == nil) {
@@ -42,6 +39,10 @@
 - (void)addHomes:(NSArray<HMHome *>*) homes {
     self.homes = homes;
     [self printHomes];
+}
+
+-(void)accessoryClicked: (HMAccessory *)accessory{
+    [self performSegueWithIdentifier:@"toAccessory" sender:accessory];
 }
 
 -(void)printHomes {
@@ -60,15 +61,18 @@
     }
 }
 
-/*
+
 #pragma mark - Navigation
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+//     Get the new view controller using [segue destinationViewController].
+//     Pass the selected object to the new view controller.
+//    AccessoryViewController *vc = [segue destinationViewController];
+    AccessoryViewController *vc = [segue destinationViewController];
+    vc.accessory = sender;
+    NSLog(@"prepare segue: ");
 }
-*/
+
 
 #pragma mark - HMHomeManagerDelegate
 
@@ -114,8 +118,10 @@
     UICollectionViewCell *cell = [collectionView cellForItemAtIndexPath:indexPath];
     UILabel *cellLabel = [cell viewWithTag:100];
     
-    HMAccessory *selected = self.homeManager.primaryHome.accessories[indexPath.row];
-    NSLog(@"Selected Item at %@ : %@", cellLabel.text, selected.name);
+    HMAccessory *accessory = self.homeManager.primaryHome.accessories[indexPath.row];
+    NSLog(@"Selected Item at %@ : %@", cellLabel.text, accessory.name);
+    
+    [self accessoryClicked:accessory];
 }
 
 /**

@@ -17,6 +17,7 @@
 		934D02C424627F77005B2098 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 934D02C324627F77005B2098 /* main.m */; };
 		934D02D224628B3C005B2098 /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 934D02D124628B3C005B2098 /* RootViewController.m */; };
 		934D02D524628BBB005B2098 /* Person.m in Sources */ = {isa = PBXBuildFile; fileRef = 934D02D424628BBB005B2098 /* Person.m */; };
+		937F94F9246FB15900E9AD5F /* AccessoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 937F94F8246FB15900E9AD5F /* AccessoryViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,6 +38,8 @@
 		934D02D124628B3C005B2098 /* RootViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RootViewController.m; sourceTree = "<group>"; };
 		934D02D324628BBB005B2098 /* Person.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Person.h; sourceTree = "<group>"; };
 		934D02D424628BBB005B2098 /* Person.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Person.m; sourceTree = "<group>"; };
+		937F94F7246FB15900E9AD5F /* AccessoryViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AccessoryViewController.h; sourceTree = "<group>"; };
+		937F94F8246FB15900E9AD5F /* AccessoryViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AccessoryViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,6 +94,8 @@
 				934D02BA24627F70005B2098 /* iHome.xcdatamodeld */,
 				934D02D024628B3C005B2098 /* RootViewController.h */,
 				934D02D124628B3C005B2098 /* RootViewController.m */,
+				937F94F7246FB15900E9AD5F /* AccessoryViewController.h */,
+				937F94F8246FB15900E9AD5F /* AccessoryViewController.m */,
 				934D02D324628BBB005B2098 /* Person.h */,
 				934D02D424628BBB005B2098 /* Person.m */,
 				9303A21D246E2BF80053EE06 /* iHome.entitlements */,
@@ -173,6 +178,7 @@
 				934D02BC24627F70005B2098 /* iHome.xcdatamodeld in Sources */,
 				934D02B024627F70005B2098 /* AppDelegate.m in Sources */,
 				934D02B324627F70005B2098 /* SceneDelegate.m in Sources */,
+				937F94F9246FB15900E9AD5F /* AccessoryViewController.m in Sources */,
 				934D02D224628B3C005B2098 /* RootViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
