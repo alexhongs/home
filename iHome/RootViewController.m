@@ -62,6 +62,28 @@
 }
 
 
+
+- (IBAction)menuClicked:(UIBarButtonItem *)sender {
+    NSLog(@"menu clicked!");
+
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Your Homes" message:@"This is your home" preferredStyle:UIAlertControllerStyleAlert];
+    
+    
+    
+//    [alert addTextFieldWithConfigurationHandler:^(UITextField * _Nonnull textField) {
+//        NSLog(@"selected text field: %@", textField.text);
+//    }];
+//
+//
+    [self presentViewController:alert animated:true completion:^{
+        
+    }];
+}
+
+
+
+
+
 #pragma mark - Navigation
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
@@ -112,7 +134,7 @@
     return item;
 }
 
-#pragma mark - UIColectionViewDelegate
+#pragma mark - UICollectionViewDelegate
 
 - (void) collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     UICollectionViewCell *cell = [collectionView cellForItemAtIndexPath:indexPath];

@@ -96,7 +96,13 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Home" id="afX-eW-npj"/>
+                    <navigationItem key="navigationItem" title="Home" id="afX-eW-npj">
+                        <barButtonItem key="leftBarButtonItem" title="Item" image="square.split.2x2.fill" catalog="system" id="CRw-7n-E8E">
+                            <connections>
+                                <action selector="menuClicked:" destination="BYZ-38-t0r" id="StP-oR-O9X"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="collectionView" destination="eHj-ay-4eI" id="H9t-1p-EJl"/>
                         <outlet property="homeLabel" destination="afX-eW-npj" id="IzB-Fo-s6w"/>
@@ -148,4 +154,7 @@
             <point key="canvasLocation" x="827.536231884058" y="138.58695652173915"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="square.split.2x2.fill" catalog="system" width="128" height="114"/>
+    </resources>
 </document>
