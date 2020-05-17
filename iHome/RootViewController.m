@@ -61,27 +61,40 @@
     }
 }
 
-
-
 - (IBAction)menuClicked:(UIBarButtonItem *)sender {
-    NSLog(@"menu clicked!");
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Your Homes" message:@"Choose your home" preferredStyle:UIAlertControllerStyleActionSheet];
+    
+    for (HMHome *home in self.homes) {
+        UIAlertAction *homeAction = [UIAlertAction actionWithTitle:home.name style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+            [self.homeManager updatePrimaryHome:home completionHandler:^(NSError * _Nullable error) {
+                [self updateView];
+            }];
+        }];
+        [alert addAction:homeAction];
+    }
+    
+    UIAlertAction *settingsAction = [UIAlertAction actionWithTitle:@"Home Settings" style:UIAlertActionStyleDestructive handler:^(UIAlertAction * _Nonnull action) {
+        [self showHomeSettings];
+    }];
+    [alert addAction:settingsAction];
+    
+    UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {}];
+    [alert addAction:cancelAction];
 
-    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Your Homes" message:@"This is your home" preferredStyle:UIAlertControllerStyleAlert];
-    
-    
-    
-//    [alert addTextFieldWithConfigurationHandler:^(UITextField * _Nonnull textField) {
-//        NSLog(@"selected text field: %@", textField.text);
-//    }];
-//
-//
     [self presentViewController:alert animated:true completion:^{
-        
+        NSLog(@"Alert Controller completed");
     }];
 }
 
+- (void)updateView {
+    self.homeLabel.title = self.homeManager.primaryHome.name;
+    [self.collectionView reloadData];
+}
 
-
+- (void)showHomeSettings {
+    
+    
+}
 
 
 #pragma mark - Navigation
@@ -95,14 +108,12 @@
     NSLog(@"prepare segue: ");
 }
 
-
 #pragma mark - HMHomeManagerDelegate
 
 - (void)homeManagerDidUpdateHomes:(HMHomeManager *)manager {
     NSLog(@"Change occured at homes!");
     [self addHomes:self.homeManager.homes];
-    self.homeLabel.title = self.homeManager.primaryHome.name;
-    self.collectionView.reloadData;
+    [self updateView];
 }
 
 #pragma mark - HMHomeDelegate
