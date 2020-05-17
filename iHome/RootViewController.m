@@ -52,12 +52,12 @@
         NSLog(@"Home: %@", home.name);
         for (HMAccessory *accessory in home.accessories) {
             NSLog(@"- Home Accessory: %@, room : %@", accessory.name, accessory.room.name);
-            for(HMService *service in accessory.services) {
+//            for(HMService *service in accessory.services) {
 //                NSLog(@"- - Home Service: %@", service.name);
-                for(HMCharacteristic *characteristic in service.characteristics) {
+//                for(HMCharacteristic *characteristic in service.characteristics) {
 //                    NSLog(@"- - - Home Characteristic: %@", characteristic.localizedDescription);
-                }
-            }
+//                }
+//            }
         }
     }
 }
