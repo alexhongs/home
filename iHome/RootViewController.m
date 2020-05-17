@@ -8,9 +8,12 @@
 
 #import "RootViewController.h"
 #import "AccessoryViewController.h"
+#import "HomeSettingsViewController.h"
+#import "SharedManager.h"
 
 @interface RootViewController ()
-@property (strong, nonatomic) IBOutlet UINavigationItem *homeLabel;
+@property (strong, nonatomic) IBOutlet UILabel *titleLabel;
+@property (strong, nonatomic) SharedManager *sharedManager;
 @end
 
 @implementation RootViewController
@@ -20,8 +23,11 @@
     
     NSLog(@"RootViewContoller - View Did Load");
     // Do any additional setup after loading the view.
-    self.homeManager = [[HMHomeManager alloc] init];
+    _sharedManager = [SharedManager sharedManager];
+    
+    self.homeManager = _sharedManager.homeManager;
     self.homeManager.delegate = self;
+    
     self.collectionView.delegate = self;
     self.collectionView.dataSource = self;
 }
@@ -51,36 +57,68 @@
         NSLog(@"Home: %@", home.name);
         for (HMAccessory *accessory in home.accessories) {
             NSLog(@"- Home Accessory: %@, room : %@", accessory.name, accessory.room.name);
-            for(HMService *service in accessory.services) {
+//            for(HMService *service in accessory.services) {
 //                NSLog(@"- - Home Service: %@", service.name);
-                for(HMCharacteristic *characteristic in service.characteristics) {
+//                for(HMCharacteristic *characteristic in service.characteristics) {
 //                    NSLog(@"- - - Home Characteristic: %@", characteristic.localizedDescription);
-                }
-            }
+//                }
+//            }
         }
     }
+}
+
+- (IBAction)menuClicked:(UIButton *)sender {
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Your Homes" message:@"Choose your home" preferredStyle:UIAlertControllerStyleActionSheet];
+    
+    for (HMHome *home in self.homes) {
+        UIAlertAction *homeAction = [UIAlertAction actionWithTitle:home.name style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+            [self.homeManager updatePrimaryHome:home completionHandler:^(NSError * _Nullable error) {
+                [self updateView];
+            }];
+        }];
+        [alert addAction:homeAction];
+    }
+    
+    UIAlertAction *settingsAction = [UIAlertAction actionWithTitle:@"Home Settings" style:UIAlertActionStyleDestructive handler:^(UIAlertAction * _Nonnull action) {
+        [self showHomeSettings];
+    }];
+    [alert addAction:settingsAction];
+    
+    UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {}];
+    [alert addAction:cancelAction];
+
+    [self presentViewController:alert animated:true completion:^{
+        NSLog(@"Alert Controller completed");
+    }];
+}
+
+- (void)updateView {
+    self.titleLabel.text = self.homeManager.primaryHome.name;
+    [self.collectionView reloadData];
+}
+
+- (void)showHomeSettings {
+    [self performSegueWithIdentifier:@"homeSettings" sender:nil];
 }
 
 
 #pragma mark - Navigation
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-//     Get the new view controller using [segue destinationViewController].
-//     Pass the selected object to the new view controller.
-//    AccessoryViewController *vc = [segue destinationViewController];
-    AccessoryViewController *vc = [segue destinationViewController];
-    vc.accessory = sender;
     NSLog(@"prepare segue: ");
+    
+    if([segue.identifier  isEqual: @"toAccessory"]) {
+        AccessoryViewController *vc = [segue destinationViewController];
+        vc.accessory = sender;
+    }
 }
-
 
 #pragma mark - HMHomeManagerDelegate
 
 - (void)homeManagerDidUpdateHomes:(HMHomeManager *)manager {
     NSLog(@"Change occured at homes!");
     [self addHomes:self.homeManager.homes];
-    self.homeLabel.title = self.homeManager.primaryHome.name;
-    self.collectionView.reloadData;
+    [self updateView];
 }
 
 #pragma mark - HMHomeDelegate
@@ -112,7 +150,7 @@
     return item;
 }
 
-#pragma mark - UIColectionViewDelegate
+#pragma mark - UICollectionViewDelegate
 
 - (void) collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     UICollectionViewCell *cell = [collectionView cellForItemAtIndexPath:indexPath];

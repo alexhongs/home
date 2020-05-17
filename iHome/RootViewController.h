@@ -18,8 +18,6 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (strong, nonatomic) IBOutlet UICollectionView *collectionView;
 
-
-- (IBAction) buttonClicked:(id)sender;
 @end
 
 NS_ASSUME_NONNULL_END
