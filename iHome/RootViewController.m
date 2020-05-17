@@ -10,7 +10,7 @@
 #import "AccessoryViewController.h"
 
 @interface RootViewController ()
-@property (strong, nonatomic) IBOutlet UINavigationItem *homeLabel;
+
 @end
 
 @implementation RootViewController
@@ -87,7 +87,7 @@
 }
 
 - (void)updateView {
-    self.homeLabel.title = self.homeManager.primaryHome.name;
+//    self.homeLabel.title = self.homeManager.primaryHome.name;
     [self.collectionView reloadData];
 }
 

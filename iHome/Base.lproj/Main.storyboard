@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="6pL-j9-bGc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="JkD-TE-D2y">
     <device id="retina6_5" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
@@ -8,22 +8,6 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Navigation Controller-->
-        <scene sceneID="aOe-fL-ord">
-            <objects>
-                <navigationController id="6pL-j9-bGc" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="CeU-jB-Nj8">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <connections>
-                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="SWB-g0-rt0"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="JbB-YA-q4O" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-758" y="139"/>
-        </scene>
         <!--Home-->
         <scene sceneID="tne-QT-ifu">
             <objects>
@@ -33,7 +17,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="This is iHome" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yHT-v7-AUc">
-                                <rect key="frame" x="30" y="88" width="354" height="124"/>
+                                <rect key="frame" x="30" y="44" width="354" height="124"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="124" id="XCJ-BY-LUV"/>
                                 </constraints>
@@ -42,7 +26,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="eHj-ay-4eI">
-                                <rect key="frame" x="0.0" y="220" width="414" height="550"/>
+                                <rect key="frame" x="0.0" y="176" width="414" height="545"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="40" minimumInteritemSpacing="40" id="eEs-t8-ZXu">
                                     <size key="itemSize" width="100" height="100"/>
@@ -96,6 +80,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <tabBarItem key="tabBarItem" title="Home" image="house.fill" catalog="system" id="EiS-AF-aeS"/>
                     <navigationItem key="navigationItem" title="Home" id="afX-eW-npj">
                         <barButtonItem key="leftBarButtonItem" title="Item" image="square.split.2x2.fill" catalog="system" id="CRw-7n-E8E">
                             <connections>
@@ -103,26 +88,26 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="collectionView" destination="eHj-ay-4eI" id="H9t-1p-EJl"/>
-                        <outlet property="homeLabel" destination="afX-eW-npj" id="IzB-Fo-s6w"/>
                         <segue destination="0Dk-hm-Oat" kind="show" identifier="toAccessory" id="EdZ-PS-rOh"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="21.739130434782609" y="137.94642857142856"/>
+            <point key="canvasLocation" x="52" y="138"/>
         </scene>
         <!--Accessory-->
         <scene sceneID="eVO-tb-fhk">
             <objects>
                 <viewController id="0Dk-hm-Oat" customClass="AccessoryViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="BdU-pp-N3s">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8KI-GR-IhU">
-                                <rect key="frame" x="87" y="88" width="240" height="148"/>
+                                <rect key="frame" x="87" y="0.0" width="240" height="182"/>
                                 <attributedString key="attributedText">
                                     <fragment content="Accessory">
                                         <attributes>
@@ -153,8 +138,117 @@
             </objects>
             <point key="canvasLocation" x="827.536231884058" y="138.58695652173915"/>
         </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="h5C-2A-v8I">
+            <objects>
+                <tabBarController id="JkD-TE-D2y" sceneMemberID="viewController">
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="8gf-Xb-es8">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="Bgc-cr-gfe"/>
+                        <segue destination="dBf-Tl-SBt" kind="relationship" relationship="viewControllers" id="Wts-p8-BzU"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ArH-6k-bXw" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-830" y="483"/>
+        </scene>
+        <!--Home-->
+        <scene sceneID="frY-Pj-KQq">
+            <objects>
+                <viewController id="dBf-Tl-SBt" customClass="RootViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="nhz-ht-Hno">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="This is Room" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tI2-NS-qKJ">
+                                <rect key="frame" x="30" y="44" width="354" height="124"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="124" id="xEb-XC-uuc"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="44"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Nk3-gz-E05">
+                                <rect key="frame" x="0.0" y="176" width="414" height="545"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="40" minimumInteritemSpacing="40" id="hyS-Di-7xw">
+                                    <size key="itemSize" width="100" height="100"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="15" minY="5" maxX="15" maxY="5"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="collectionCell" id="LKT-S0-XSV">
+                                        <rect key="frame" x="15" y="5" width="100" height="100"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="0Py-iA-lGM">
+                                            <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" tag="100" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IY2-lF-7rD">
+                                                    <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
+                                                    <attributedString key="attributedText">
+                                                        <fragment content="Label">
+                                                            <attributes>
+                                                                <font key="NSFont" metaFont="system" size="17"/>
+                                                                <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                            </attributes>
+                                                        </fragment>
+                                                    </attributedString>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="IY2-lF-7rD" firstAttribute="leading" secondItem="0Py-iA-lGM" secondAttribute="leading" id="2eG-Gf-GEw"/>
+                                                <constraint firstItem="IY2-lF-7rD" firstAttribute="centerX" secondItem="0Py-iA-lGM" secondAttribute="centerX" id="nfb-cm-ehk"/>
+                                                <constraint firstItem="IY2-lF-7rD" firstAttribute="top" secondItem="0Py-iA-lGM" secondAttribute="top" id="y5E-VZ-31n"/>
+                                                <constraint firstItem="IY2-lF-7rD" firstAttribute="centerY" secondItem="0Py-iA-lGM" secondAttribute="centerY" id="yqk-Hf-hIv"/>
+                                            </constraints>
+                                        </collectionViewCellContentView>
+                                        <color key="backgroundColor" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <size key="customSize" width="100" height="100"/>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="tI2-NS-qKJ" firstAttribute="top" secondItem="8Ze-hl-GWw" secondAttribute="top" id="4rZ-sd-zvZ"/>
+                            <constraint firstItem="8Ze-hl-GWw" firstAttribute="bottom" secondItem="Nk3-gz-E05" secondAttribute="bottom" constant="92" id="aNY-Tq-r8Y"/>
+                            <constraint firstItem="Nk3-gz-E05" firstAttribute="top" secondItem="tI2-NS-qKJ" secondAttribute="bottom" constant="8" id="gUj-bP-D4g"/>
+                            <constraint firstItem="tI2-NS-qKJ" firstAttribute="leading" secondItem="8Ze-hl-GWw" secondAttribute="leading" constant="30" id="lwJ-d9-w4l"/>
+                            <constraint firstItem="Nk3-gz-E05" firstAttribute="centerX" secondItem="tI2-NS-qKJ" secondAttribute="centerX" id="mwB-rG-ZfJ"/>
+                            <constraint firstItem="Nk3-gz-E05" firstAttribute="leading" secondItem="8Ze-hl-GWw" secondAttribute="leading" id="s0q-kw-mKr"/>
+                            <constraint firstItem="tI2-NS-qKJ" firstAttribute="centerX" secondItem="nhz-ht-Hno" secondAttribute="centerX" id="y2O-NS-Wrd"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="8Ze-hl-GWw"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Rooms" image="cube.fill" catalog="system" id="Q6Q-64-fGT"/>
+                    <navigationItem key="navigationItem" title="Home" id="jZO-l5-Y7O">
+                        <barButtonItem key="leftBarButtonItem" title="Item" image="square.split.2x2.fill" catalog="system" id="XyN-TY-Dle">
+                            <connections>
+                                <action selector="menuClicked:" destination="dBf-Tl-SBt" id="7Zg-g6-Lhd"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="collectionView" destination="Nk3-gz-E05" id="R7p-kp-m8K"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="kyw-Wt-xuw" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="51" y="938"/>
+        </scene>
     </scenes>
     <resources>
+        <image name="cube.fill" catalog="system" width="128" height="124"/>
+        <image name="house.fill" catalog="system" width="128" height="106"/>
         <image name="square.split.2x2.fill" catalog="system" width="128" height="114"/>
     </resources>
 </document>
