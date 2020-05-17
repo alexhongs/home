@@ -10,7 +10,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface HomeSettingsViewController : UIViewController<UITableViewDataSource>
+@interface HomeSettingsViewController : UIViewController<UITableViewDataSource, UITableViewDelegate>
 
 @end
 

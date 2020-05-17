@@ -43,13 +43,18 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 1;
+    return 5;
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
 //
-//    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"homeCell" forIndexPath:indexPath];
-    
-    
+    NSLog(@"Debug Description: %@", tableView.debugDescription);
+    NSLog(@"ID: %@", tableView.restorationIdentifier);
+    if(self.vc != nil) {
+        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
+        cell.textLabel.text = @"cell in here";
+        return cell;
+    }
+        
 //    cell.textLabel.text = @"some cell";
     
 //    NSLog(tableView.)
@@ -65,8 +70,13 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     self.vc = segue.destinationViewController;
     NSLog(@"Prepare for segue: %@", segue.destinationViewController.description);
-//    self.vc.tableView.dataSource = self;
-//    [self.vc.tableView reloadData];
+    self.vc.tableView.dataSource = self;
+    self.vc.tableView.delegate = self;
+    
+
+    [self.vc.tableView registerClass:UITableViewCell.self forCellReuseIdentifier:@"cell"];
+    
+    [self.vc.tableView reloadData];
 }
 
 @end
