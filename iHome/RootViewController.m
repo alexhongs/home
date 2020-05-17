@@ -8,10 +8,12 @@
 
 #import "RootViewController.h"
 #import "AccessoryViewController.h"
+#import "HomeSettingsViewController.h"
+#import "SharedManager.h"
 
 @interface RootViewController ()
 @property (strong, nonatomic) IBOutlet UILabel *titleLabel;
-
+@property (strong, nonatomic) SharedManager *sharedManager;
 @end
 
 @implementation RootViewController
@@ -21,8 +23,11 @@
     
     NSLog(@"RootViewContoller - View Did Load");
     // Do any additional setup after loading the view.
-    self.homeManager = [[HMHomeManager alloc] init];
+    _sharedManager = [SharedManager sharedManager];
+    
+    self.homeManager = _sharedManager.homeManager;
     self.homeManager.delegate = self;
+    
     self.collectionView.delegate = self;
     self.collectionView.dataSource = self;
 }
@@ -100,17 +105,12 @@
 #pragma mark - Navigation
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-//     Get the new view controller using [segue destinationViewController].
-//     Pass the selected object to the new view controller.
-
+    NSLog(@"prepare segue: ");
+    
     if([segue.identifier  isEqual: @"toAccessory"]) {
         AccessoryViewController *vc = [segue destinationViewController];
         vc.accessory = sender;
-    } else {
-        
     }
-
-    NSLog(@"prepare segue: ");
 }
 
 #pragma mark - HMHomeManagerDelegate

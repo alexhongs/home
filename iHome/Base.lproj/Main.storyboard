@@ -310,18 +310,18 @@
         <scene sceneID="ilk-wX-BaZ">
             <objects>
                 <tableViewController storyboardIdentifier="homeSettingsTableVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="vn1-Cp-YTm" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier=" homeCellTableView" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="iqa-eh-AVq">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier=" homeCellTableView" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="static" style="insetGrouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="iqa-eh-AVq">
                         <rect key="frame" x="0.0" y="0.0" width="354" height="608"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <sections>
-                            <tableViewSection headerTitle="Header Title" id="Wsz-xY-cMS">
+                            <tableViewSection headerTitle="homes" id="Wsz-xY-cMS">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" id="sK9-gk-QfR">
-                                        <rect key="frame" x="0.0" y="28" width="354" height="44"/>
+                                        <rect key="frame" x="20" y="55.333332061767578" width="314" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="sK9-gk-QfR" id="RLv-YL-ZwR">
-                                            <rect key="frame" x="0.0" y="0.0" width="354" height="44"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="314" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>

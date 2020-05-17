@@ -7,10 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <HomeKit/HomeKit.h>
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface HomeSettingsViewController : UIViewController<UITableViewDataSource, UITableViewDelegate>
+
+@property (nonatomic, strong) HMHomeManager *homeManager;
 
 @end
 

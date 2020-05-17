@@ -19,6 +19,7 @@
 		934D02D224628B3C005B2098 /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 934D02D124628B3C005B2098 /* RootViewController.m */; };
 		934D02D524628BBB005B2098 /* Person.m in Sources */ = {isa = PBXBuildFile; fileRef = 934D02D424628BBB005B2098 /* Person.m */; };
 		937F94F9246FB15900E9AD5F /* AccessoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 937F94F8246FB15900E9AD5F /* AccessoryViewController.m */; };
+		93E9A94F2471D58B00A47A5B /* SharedManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 93E9A94E2471D58B00A47A5B /* SharedManager.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -43,6 +44,8 @@
 		934D02D424628BBB005B2098 /* Person.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Person.m; sourceTree = "<group>"; };
 		937F94F7246FB15900E9AD5F /* AccessoryViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AccessoryViewController.h; sourceTree = "<group>"; };
 		937F94F8246FB15900E9AD5F /* AccessoryViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AccessoryViewController.m; sourceTree = "<group>"; };
+		93E9A94D2471D58B00A47A5B /* SharedManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SharedManager.h; sourceTree = "<group>"; };
+		93E9A94E2471D58B00A47A5B /* SharedManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SharedManager.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,6 +98,8 @@
 				934D02C224627F77005B2098 /* Info.plist */,
 				934D02C324627F77005B2098 /* main.m */,
 				934D02BA24627F70005B2098 /* iHome.xcdatamodeld */,
+				93E9A94D2471D58B00A47A5B /* SharedManager.h */,
+				93E9A94E2471D58B00A47A5B /* SharedManager.m */,
 				934D02D024628B3C005B2098 /* RootViewController.h */,
 				934D02D124628B3C005B2098 /* RootViewController.m */,
 				933EFD8F2470D4F10090134C /* HomeSettingsViewController.h */,
@@ -186,6 +191,7 @@
 				934D02B324627F70005B2098 /* SceneDelegate.m in Sources */,
 				937F94F9246FB15900E9AD5F /* AccessoryViewController.m in Sources */,
 				934D02D224628B3C005B2098 /* RootViewController.m in Sources */,
+				93E9A94F2471D58B00A47A5B /* SharedManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
