@@ -10,6 +10,7 @@
 #import "AccessoryViewController.h"
 
 @interface RootViewController ()
+@property (strong, nonatomic) IBOutlet UILabel *titleLabel;
 
 @end
 
@@ -61,7 +62,7 @@
     }
 }
 
-- (IBAction)menuClicked:(UIBarButtonItem *)sender {
+- (IBAction)menuClicked:(UIButton *)sender {
     UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Your Homes" message:@"Choose your home" preferredStyle:UIAlertControllerStyleActionSheet];
     
     for (HMHome *home in self.homes) {
@@ -87,13 +88,12 @@
 }
 
 - (void)updateView {
-//    self.homeLabel.title = self.homeManager.primaryHome.name;
+    self.titleLabel.text = self.homeManager.primaryHome.name;
     [self.collectionView reloadData];
 }
 
 - (void)showHomeSettings {
-    
-    
+    [self performSegueWithIdentifier:@"homeSettings" sender:nil];
 }
 
 
@@ -103,8 +103,14 @@
 //     Get the new view controller using [segue destinationViewController].
 //     Pass the selected object to the new view controller.
 //    AccessoryViewController *vc = [segue destinationViewController];
-    AccessoryViewController *vc = [segue destinationViewController];
-    vc.accessory = sender;
+    NSString *identifier = segue.identifier;
+    if([identifier  isEqual: @"toAccessory"]) {
+        AccessoryViewController *vc = [segue destinationViewController];
+        vc.accessory = sender;
+    } else {
+        
+    }
+
     NSLog(@"prepare segue: ");
 }
 

@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		9303A220246E2C500053EE06 /* HomeKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9303A21F246E2C500053EE06 /* HomeKit.framework */; };
+		933EFD912470D4F10090134C /* HomeSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 933EFD902470D4F10090134C /* HomeSettingsViewController.m */; };
 		934D02B024627F70005B2098 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 934D02AF24627F70005B2098 /* AppDelegate.m */; };
 		934D02B324627F70005B2098 /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 934D02B224627F70005B2098 /* SceneDelegate.m */; };
 		934D02B924627F70005B2098 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 934D02B724627F70005B2098 /* Main.storyboard */; };
@@ -23,6 +24,8 @@
 /* Begin PBXFileReference section */
 		9303A21D246E2BF80053EE06 /* iHome.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = iHome.entitlements; sourceTree = "<group>"; };
 		9303A21F246E2C500053EE06 /* HomeKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HomeKit.framework; path = System/Library/Frameworks/HomeKit.framework; sourceTree = SDKROOT; };
+		933EFD8F2470D4F10090134C /* HomeSettingsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomeSettingsViewController.h; sourceTree = "<group>"; };
+		933EFD902470D4F10090134C /* HomeSettingsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomeSettingsViewController.m; sourceTree = "<group>"; };
 		934D02AB24627F70005B2098 /* iHome.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iHome.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		934D02AE24627F70005B2098 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		934D02AF24627F70005B2098 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -93,6 +96,8 @@
 				934D02C324627F77005B2098 /* main.m */,
 				934D02BA24627F70005B2098 /* iHome.xcdatamodeld */,
 				934D02D024628B3C005B2098 /* RootViewController.h */,
+				933EFD8F2470D4F10090134C /* HomeSettingsViewController.h */,
+				933EFD902470D4F10090134C /* HomeSettingsViewController.m */,
 				934D02D124628B3C005B2098 /* RootViewController.m */,
 				937F94F7246FB15900E9AD5F /* AccessoryViewController.h */,
 				937F94F8246FB15900E9AD5F /* AccessoryViewController.m */,
@@ -173,6 +178,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				933EFD912470D4F10090134C /* HomeSettingsViewController.m in Sources */,
 				934D02D524628BBB005B2098 /* Person.m in Sources */,
 				934D02C424627F77005B2098 /* main.m in Sources */,
 				934D02BC24627F70005B2098 /* iHome.xcdatamodeld in Sources */,
