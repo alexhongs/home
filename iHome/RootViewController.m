@@ -102,9 +102,8 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
 //     Get the new view controller using [segue destinationViewController].
 //     Pass the selected object to the new view controller.
-//    AccessoryViewController *vc = [segue destinationViewController];
-    NSString *identifier = segue.identifier;
-    if([identifier  isEqual: @"toAccessory"]) {
+
+    if([segue.identifier  isEqual: @"toAccessory"]) {
         AccessoryViewController *vc = [segue destinationViewController];
         vc.accessory = sender;
     } else {

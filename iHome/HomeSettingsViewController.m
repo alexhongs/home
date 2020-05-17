@@ -9,6 +9,7 @@
 #import "HomeSettingsViewController.h"
 
 @interface HomeSettingsViewController ()
+@property (strong, nonatomic) IBOutlet UITableView *tableView;
 
 @end
 
@@ -17,10 +18,30 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    self.tableView.dataSource = self;
+    
 }
+
 - (IBAction)done:(id)sender {
     [self dismissViewControllerAnimated:true completion:nil];
 }
+
+#pragma mark - UITableViewDataSource
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+    return 1;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return 5;
+}
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
+    cell.textLabel.text = @"some cell";
+    return cell;
+}
+
 
 /*
 #pragma mark - Navigation
