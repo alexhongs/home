@@ -176,14 +176,14 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="This is Room" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tI2-NS-qKJ">
                                 <rect key="frame" x="30" y="44" width="354" height="124"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="124" id="xEb-XC-uuc"/>
+                                    <constraint firstAttribute="height" constant="124" id="XQu-ab-7Zo"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="44"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Nk3-gz-E05">
-                                <rect key="frame" x="0.0" y="176" width="414" height="545"/>
+                                <rect key="frame" x="0.0" y="175" width="414" height="544"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="40" minimumInteritemSpacing="40" id="hyS-Di-7xw">
                                     <size key="itemSize" width="100" height="100"/>
@@ -213,10 +213,10 @@
                                                 </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="IY2-lF-7rD" firstAttribute="leading" secondItem="0Py-iA-lGM" secondAttribute="leading" id="2eG-Gf-GEw"/>
-                                                <constraint firstItem="IY2-lF-7rD" firstAttribute="centerX" secondItem="0Py-iA-lGM" secondAttribute="centerX" id="nfb-cm-ehk"/>
-                                                <constraint firstItem="IY2-lF-7rD" firstAttribute="top" secondItem="0Py-iA-lGM" secondAttribute="top" id="y5E-VZ-31n"/>
-                                                <constraint firstItem="IY2-lF-7rD" firstAttribute="centerY" secondItem="0Py-iA-lGM" secondAttribute="centerY" id="yqk-Hf-hIv"/>
+                                                <constraint firstItem="IY2-lF-7rD" firstAttribute="centerX" secondItem="0Py-iA-lGM" secondAttribute="centerX" id="0Dk-Ur-1Hl"/>
+                                                <constraint firstItem="IY2-lF-7rD" firstAttribute="leading" secondItem="0Py-iA-lGM" secondAttribute="leading" id="11p-el-TS4"/>
+                                                <constraint firstItem="IY2-lF-7rD" firstAttribute="top" secondItem="0Py-iA-lGM" secondAttribute="top" id="AOG-mm-iOR"/>
+                                                <constraint firstItem="IY2-lF-7rD" firstAttribute="centerY" secondItem="0Py-iA-lGM" secondAttribute="centerY" id="CNF-N2-cYD"/>
                                             </constraints>
                                         </collectionViewCellContentView>
                                         <color key="backgroundColor" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -227,13 +227,13 @@
                         </subviews>
                         <color key="backgroundColor" red="0.59221150519999999" green="0.60918089529999997" blue="0.81705927460000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="tI2-NS-qKJ" firstAttribute="top" secondItem="8Ze-hl-GWw" secondAttribute="top" id="4rZ-sd-zvZ"/>
-                            <constraint firstItem="8Ze-hl-GWw" firstAttribute="bottom" secondItem="Nk3-gz-E05" secondAttribute="bottom" constant="92" id="aNY-Tq-r8Y"/>
-                            <constraint firstItem="Nk3-gz-E05" firstAttribute="top" secondItem="tI2-NS-qKJ" secondAttribute="bottom" constant="8" id="gUj-bP-D4g"/>
-                            <constraint firstItem="tI2-NS-qKJ" firstAttribute="leading" secondItem="8Ze-hl-GWw" secondAttribute="leading" constant="30" id="lwJ-d9-w4l"/>
-                            <constraint firstItem="Nk3-gz-E05" firstAttribute="centerX" secondItem="tI2-NS-qKJ" secondAttribute="centerX" id="mwB-rG-ZfJ"/>
-                            <constraint firstItem="Nk3-gz-E05" firstAttribute="leading" secondItem="8Ze-hl-GWw" secondAttribute="leading" id="s0q-kw-mKr"/>
-                            <constraint firstItem="tI2-NS-qKJ" firstAttribute="centerX" secondItem="nhz-ht-Hno" secondAttribute="centerX" id="y2O-NS-Wrd"/>
+                            <constraint firstItem="tI2-NS-qKJ" firstAttribute="top" secondItem="8Ze-hl-GWw" secondAttribute="top" id="1Et-ZP-fb5"/>
+                            <constraint firstItem="Nk3-gz-E05" firstAttribute="top" secondItem="tI2-NS-qKJ" secondAttribute="bottom" constant="7" id="9eJ-Vn-UW3"/>
+                            <constraint firstItem="Nk3-gz-E05" firstAttribute="leading" secondItem="8Ze-hl-GWw" secondAttribute="leading" id="NSm-t6-kHw"/>
+                            <constraint firstItem="tI2-NS-qKJ" firstAttribute="leading" secondItem="8Ze-hl-GWw" secondAttribute="leading" constant="30" id="gUS-E1-YIU"/>
+                            <constraint firstItem="Nk3-gz-E05" firstAttribute="centerX" secondItem="tI2-NS-qKJ" secondAttribute="centerX" id="hQN-MD-Awy"/>
+                            <constraint firstItem="tI2-NS-qKJ" firstAttribute="centerX" secondItem="nhz-ht-Hno" secondAttribute="centerX" id="jxt-lg-cUe"/>
+                            <constraint firstItem="8Ze-hl-GWw" firstAttribute="bottom" secondItem="Nk3-gz-E05" secondAttribute="bottom" constant="94" id="nXD-qX-v3z"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="8Ze-hl-GWw"/>
                     </view>
