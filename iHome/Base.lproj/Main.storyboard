@@ -17,16 +17,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="This is iHome" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yHT-v7-AUc">
-                                <rect key="frame" x="30" y="44" width="354" height="124"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="124" id="XCJ-BY-LUV"/>
-                                </constraints>
+                                <rect key="frame" x="30" y="44" width="354" height="122"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="44"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="eHj-ay-4eI">
-                                <rect key="frame" x="0.0" y="176" width="414" height="545"/>
+                                <rect key="frame" x="0.0" y="175" width="414" height="546"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="40" minimumInteritemSpacing="40" id="eEs-t8-ZXu">
                                     <size key="itemSize" width="100" height="100"/>
@@ -56,10 +53,10 @@
                                                 </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="vO7-zc-2Tz" firstAttribute="centerX" secondItem="t6K-7b-UEH" secondAttribute="centerX" id="5Ho-Vh-ynZ"/>
-                                                <constraint firstItem="vO7-zc-2Tz" firstAttribute="leading" secondItem="t6K-7b-UEH" secondAttribute="leading" id="7pB-tR-MGH"/>
-                                                <constraint firstItem="vO7-zc-2Tz" firstAttribute="centerY" secondItem="t6K-7b-UEH" secondAttribute="centerY" id="QJX-Fk-zj3"/>
-                                                <constraint firstItem="vO7-zc-2Tz" firstAttribute="top" secondItem="t6K-7b-UEH" secondAttribute="top" id="ydi-br-Q6J"/>
+                                                <constraint firstItem="vO7-zc-2Tz" firstAttribute="centerX" secondItem="t6K-7b-UEH" secondAttribute="centerX" id="18q-ve-cF1"/>
+                                                <constraint firstItem="vO7-zc-2Tz" firstAttribute="leading" secondItem="t6K-7b-UEH" secondAttribute="leading" id="Ih9-dx-KS1"/>
+                                                <constraint firstItem="vO7-zc-2Tz" firstAttribute="centerY" secondItem="t6K-7b-UEH" secondAttribute="centerY" id="dEs-qT-oJO"/>
+                                                <constraint firstItem="vO7-zc-2Tz" firstAttribute="top" secondItem="t6K-7b-UEH" secondAttribute="top" id="oWr-Mj-5jd"/>
                                             </constraints>
                                         </collectionViewCellContentView>
                                         <color key="backgroundColor" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -70,7 +67,7 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Y9l-od-c2R">
                                 <rect key="frame" x="13" y="57" width="34" height="32"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="32" id="EEE-iy-QKf"/>
+                                    <constraint firstAttribute="height" constant="32" id="ZHD-kE-KvV"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                 <state key="normal" image="square.grid.2x2.fill" catalog="system">
@@ -83,16 +80,17 @@
                         </subviews>
                         <color key="backgroundColor" red="0.80000000000000004" green="0.92941176469999998" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="eHj-ay-4eI" firstAttribute="centerX" secondItem="yHT-v7-AUc" secondAttribute="centerX" id="14k-hY-NDQ"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Y9l-od-c2R" secondAttribute="trailing" constant="367" id="6K3-Dr-Dtq"/>
-                            <constraint firstItem="eHj-ay-4eI" firstAttribute="top" secondItem="yHT-v7-AUc" secondAttribute="bottom" constant="8" id="76e-pW-5U4"/>
-                            <constraint firstItem="yHT-v7-AUc" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="30" id="9Dz-bR-pmP"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="eHj-ay-4eI" secondAttribute="bottom" constant="92" id="9kP-Df-65U"/>
-                            <constraint firstItem="yHT-v7-AUc" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="IDi-hk-T5C"/>
-                            <constraint firstItem="Y9l-od-c2R" firstAttribute="top" secondItem="yHT-v7-AUc" secondAttribute="top" constant="13" id="NYX-tD-Dmu"/>
-                            <constraint firstItem="yHT-v7-AUc" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="VhW-tf-jyv"/>
-                            <constraint firstItem="eHj-ay-4eI" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="dkV-93-la6"/>
-                            <constraint firstItem="Y9l-od-c2R" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-7" id="mkK-Lk-9Ze"/>
+                            <constraint firstItem="yHT-v7-AUc" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="0H2-5T-dfh"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Y9l-od-c2R" secondAttribute="trailing" constant="367" id="1un-ro-rKx"/>
+                            <constraint firstItem="eHj-ay-4eI" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="F84-Jo-J4V"/>
+                            <constraint firstItem="eHj-ay-4eI" firstAttribute="centerX" secondItem="yHT-v7-AUc" secondAttribute="centerX" id="NwD-xp-rCo"/>
+                            <constraint firstItem="Y9l-od-c2R" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="13" id="TUP-MV-pTm"/>
+                            <constraint firstItem="yHT-v7-AUc" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="URk-WD-qPL"/>
+                            <constraint firstItem="Y9l-od-c2R" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="13" id="eJS-3f-Vr6"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="eHj-ay-4eI" secondAttribute="bottom" constant="92" id="eWa-xt-V6H"/>
+                            <constraint firstItem="yHT-v7-AUc" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="30" id="gaZ-IJ-pWf"/>
+                            <constraint firstItem="eHj-ay-4eI" firstAttribute="top" secondItem="yHT-v7-AUc" secondAttribute="bottom" constant="9" id="gcR-GO-Cia"/>
+                            <constraint firstItem="eHj-ay-4eI" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="iO8-tF-erM"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
@@ -102,7 +100,7 @@
                         <outlet property="collectionView" destination="eHj-ay-4eI" id="H9t-1p-EJl"/>
                         <outlet property="titleLabel" destination="yHT-v7-AUc" id="PC0-Dz-HSt"/>
                         <segue destination="0Dk-hm-Oat" kind="show" identifier="toAccessory" id="EdZ-PS-rOh"/>
-                        <segue destination="t23-0q-Uhp" kind="show" identifier="homeSettings" id="zV6-Gc-boO"/>
+                        <segue destination="t23-0q-Uhp" kind="show" identifier="toSettings" id="zV6-Gc-boO"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -167,10 +165,10 @@
             </objects>
             <point key="canvasLocation" x="-830" y="483"/>
         </scene>
-        <!--Home-->
+        <!--Room-->
         <scene sceneID="frY-Pj-KQq">
             <objects>
-                <viewController id="dBf-Tl-SBt" customClass="RootViewController" sceneMemberID="viewController">
+                <viewController id="dBf-Tl-SBt" userLabel="Room" customClass="RoomViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="nhz-ht-Hno">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -241,15 +239,13 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Rooms" image="cube.fill" catalog="system" id="Q6Q-64-fGT"/>
                     <navigationItem key="navigationItem" title="Home" id="jZO-l5-Y7O">
-                        <barButtonItem key="leftBarButtonItem" title="Item" image="square.split.2x2.fill" catalog="system" id="XyN-TY-Dle">
-                            <connections>
-                                <action selector="menuClicked:" destination="dBf-Tl-SBt" id="7Zg-g6-Lhd"/>
-                            </connections>
-                        </barButtonItem>
+                        <barButtonItem key="leftBarButtonItem" title="Item" image="square.split.2x2.fill" catalog="system" id="XyN-TY-Dle"/>
                     </navigationItem>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="collectionView" destination="Nk3-gz-E05" id="R7p-kp-m8K"/>
+                        <outlet property="titleLabel" destination="tI2-NS-qKJ" id="YYn-CO-nmE"/>
+                        <segue destination="t23-0q-Uhp" kind="show" identifier="toSettings" id="8S6-nk-XqO"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kyw-Wt-xuw" sceneMemberID="firstResponder"/>
@@ -335,6 +331,9 @@
             <point key="canvasLocation" x="1590" y="946"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="8S6-nk-XqO"/>
+    </inferredMetricsTieBreakers>
     <resources>
         <image name="cube.fill" catalog="system" width="128" height="124"/>
         <image name="house.fill" catalog="system" width="128" height="106"/>
