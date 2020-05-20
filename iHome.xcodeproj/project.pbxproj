@@ -18,6 +18,7 @@
 		934D02C424627F77005B2098 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 934D02C324627F77005B2098 /* main.m */; };
 		934D02D224628B3C005B2098 /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 934D02D124628B3C005B2098 /* RootViewController.m */; };
 		934D02D524628BBB005B2098 /* Person.m in Sources */ = {isa = PBXBuildFile; fileRef = 934D02D424628BBB005B2098 /* Person.m */; };
+		9351FF1D2475C01C0089FD42 /* AutomationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9351FF1C2475C01C0089FD42 /* AutomationViewController.m */; };
 		936AA9612474627900F97E7F /* RoomViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 936AA9602474627900F97E7F /* RoomViewController.m */; };
 		937F94F9246FB15900E9AD5F /* AccessoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 937F94F8246FB15900E9AD5F /* AccessoryViewController.m */; };
 		93E9A94F2471D58B00A47A5B /* SharedManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 93E9A94E2471D58B00A47A5B /* SharedManager.m */; };
@@ -43,6 +44,8 @@
 		934D02D124628B3C005B2098 /* RootViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RootViewController.m; sourceTree = "<group>"; };
 		934D02D324628BBB005B2098 /* Person.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Person.h; sourceTree = "<group>"; };
 		934D02D424628BBB005B2098 /* Person.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Person.m; sourceTree = "<group>"; };
+		9351FF1B2475C01C0089FD42 /* AutomationViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AutomationViewController.h; sourceTree = "<group>"; };
+		9351FF1C2475C01C0089FD42 /* AutomationViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AutomationViewController.m; sourceTree = "<group>"; };
 		936AA95F2474627900F97E7F /* RoomViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RoomViewController.h; sourceTree = "<group>"; };
 		936AA9602474627900F97E7F /* RoomViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RoomViewController.m; sourceTree = "<group>"; };
 		937F94F7246FB15900E9AD5F /* AccessoryViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AccessoryViewController.h; sourceTree = "<group>"; };
@@ -96,6 +99,8 @@
 				934D02B124627F70005B2098 /* SceneDelegate.h */,
 				934D02B224627F70005B2098 /* SceneDelegate.m */,
 				934D02B724627F70005B2098 /* Main.storyboard */,
+				9351FF1B2475C01C0089FD42 /* AutomationViewController.h */,
+				9351FF1C2475C01C0089FD42 /* AutomationViewController.m */,
 				934D02BD24627F77005B2098 /* Assets.xcassets */,
 				934D02BF24627F77005B2098 /* LaunchScreen.storyboard */,
 				934D02C224627F77005B2098 /* Info.plist */,
@@ -192,6 +197,7 @@
 				936AA9612474627900F97E7F /* RoomViewController.m in Sources */,
 				934D02D524628BBB005B2098 /* Person.m in Sources */,
 				934D02C424627F77005B2098 /* main.m in Sources */,
+				9351FF1D2475C01C0089FD42 /* AutomationViewController.m in Sources */,
 				934D02BC24627F70005B2098 /* iHome.xcdatamodeld in Sources */,
 				934D02B024627F70005B2098 /* AppDelegate.m in Sources */,
 				934D02B324627F70005B2098 /* SceneDelegate.m in Sources */,

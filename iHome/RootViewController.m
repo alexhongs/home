@@ -192,7 +192,7 @@
     UICollectionViewCell *item = [self.collectionView dequeueReusableCellWithReuseIdentifier:@"collectionCell" forIndexPath:indexPath];
     UILabel *label = [item viewWithTag:100];
     label.text = self.homeManager.primaryHome.accessories[indexPath.row].name;
-    item.backgroundColor = UIColor.lightGrayColor;
+    item.backgroundColor = UIColor.whiteColor;
     return item;
 }
 
@@ -213,7 +213,7 @@
  */
 - (void)collectionView:(UICollectionView *)collectionView didHighlightItemAtIndexPath:(NSIndexPath *)indexPath {
     UICollectionViewCell *cell = [collectionView cellForItemAtIndexPath:indexPath];
-    cell.backgroundColor = UIColor.darkGrayColor;
+    cell.backgroundColor = UIColor.lightGrayColor;
 }
 
 /**
@@ -221,7 +221,7 @@ Triggered when cell item is released
 */
 - (void)collectionView:(UICollectionView *)collectionView didUnhighlightItemAtIndexPath:(NSIndexPath *)indexPath {
     UICollectionViewCell *cell = [collectionView cellForItemAtIndexPath:indexPath];
-    cell.backgroundColor = UIColor.lightGrayColor;
+    cell.backgroundColor = UIColor.whiteColor;
 }
 
 @end
