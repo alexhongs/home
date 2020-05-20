@@ -74,6 +74,24 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		93320D522475C3B7005E15E8 /* etc */ = {
+			isa = PBXGroup;
+			children = (
+				934D02D324628BBB005B2098 /* Person.h */,
+				934D02D424628BBB005B2098 /* Person.m */,
+			);
+			path = etc;
+			sourceTree = "<group>";
+		};
+		93320D532475C3E9005E15E8 /* shared */ = {
+			isa = PBXGroup;
+			children = (
+				93E9A94D2471D58B00A47A5B /* SharedManager.h */,
+				93E9A94E2471D58B00A47A5B /* SharedManager.m */,
+			);
+			path = shared;
+			sourceTree = "<group>";
+		};
 		934D02A224627F70005B2098 = {
 			isa = PBXGroup;
 			children = (
@@ -98,27 +116,25 @@
 				934D02AF24627F70005B2098 /* AppDelegate.m */,
 				934D02B124627F70005B2098 /* SceneDelegate.h */,
 				934D02B224627F70005B2098 /* SceneDelegate.m */,
-				934D02B724627F70005B2098 /* Main.storyboard */,
-				9351FF1B2475C01C0089FD42 /* AutomationViewController.h */,
-				9351FF1C2475C01C0089FD42 /* AutomationViewController.m */,
-				934D02BD24627F77005B2098 /* Assets.xcassets */,
-				934D02BF24627F77005B2098 /* LaunchScreen.storyboard */,
-				934D02C224627F77005B2098 /* Info.plist */,
 				934D02C324627F77005B2098 /* main.m */,
-				934D02BA24627F70005B2098 /* iHome.xcdatamodeld */,
-				93E9A94D2471D58B00A47A5B /* SharedManager.h */,
-				93E9A94E2471D58B00A47A5B /* SharedManager.m */,
-				934D02D024628B3C005B2098 /* RootViewController.h */,
-				934D02D124628B3C005B2098 /* RootViewController.m */,
-				936AA95F2474627900F97E7F /* RoomViewController.h */,
-				936AA9602474627900F97E7F /* RoomViewController.m */,
-				933EFD8F2470D4F10090134C /* HomeSettingsViewController.h */,
-				933EFD902470D4F10090134C /* HomeSettingsViewController.m */,
-				937F94F7246FB15900E9AD5F /* AccessoryViewController.h */,
-				937F94F8246FB15900E9AD5F /* AccessoryViewController.m */,
-				934D02D324628BBB005B2098 /* Person.h */,
-				934D02D424628BBB005B2098 /* Person.m */,
+				934D02C224627F77005B2098 /* Info.plist */,
 				9303A21D246E2BF80053EE06 /* iHome.entitlements */,
+				934D02BA24627F70005B2098 /* iHome.xcdatamodeld */,
+				934D02BD24627F77005B2098 /* Assets.xcassets */,
+				93320D532475C3E9005E15E8 /* shared */,
+				93320D522475C3B7005E15E8 /* etc */,
+				934D02BF24627F77005B2098 /* LaunchScreen.storyboard */,
+				934D02B724627F70005B2098 /* Main.storyboard */,
+				934D02D024628B3C005B2098 /* RootViewController.h */,
+				936AA95F2474627900F97E7F /* RoomViewController.h */,
+				9351FF1B2475C01C0089FD42 /* AutomationViewController.h */,
+				933EFD8F2470D4F10090134C /* HomeSettingsViewController.h */,
+				937F94F7246FB15900E9AD5F /* AccessoryViewController.h */,
+				934D02D124628B3C005B2098 /* RootViewController.m */,
+				936AA9602474627900F97E7F /* RoomViewController.m */,
+				9351FF1C2475C01C0089FD42 /* AutomationViewController.m */,
+				933EFD902470D4F10090134C /* HomeSettingsViewController.m */,
+				937F94F8246FB15900E9AD5F /* AccessoryViewController.m */,
 			);
 			path = iHome;
 			sourceTree = "<group>";
