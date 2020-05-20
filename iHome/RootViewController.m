@@ -12,8 +12,14 @@
 #import "SharedManager.h"
 
 @interface RootViewController ()
-@property (strong, nonatomic) IBOutlet UILabel *titleLabel;
 @property (strong, nonatomic) SharedManager *sharedManager;
+
+@property (nonatomic, strong) HMHomeManager *homeManager;
+@property (nonatomic, strong) NSArray<HMHome *> *homes;
+
+@property (strong, nonatomic) IBOutlet UICollectionView *collectionView;
+@property (strong, nonatomic) IBOutlet UILabel *titleLabel;
+
 @end
 
 @implementation RootViewController
@@ -32,39 +38,8 @@
     self.collectionView.dataSource = self;
 }
 
-- (void)addHome:(NSString *) name {
-    [self.homeManager addHomeWithName:name completionHandler:^(HMHome * _Nullable home, NSError * _Nullable error) {
-        if(error == nil) {
-            
-        } else {
-            NSLog(@"Error adding Home. Check if the %@ already exists", name);
-        }
-    }];
-}
-
-- (void)addHomes:(NSArray<HMHome *>*) homes {
-    self.homes = homes;
-    [self printHomes];
-}
-
 -(void)accessoryClicked: (HMAccessory *)accessory{
     [self performSegueWithIdentifier:@"toAccessory" sender:accessory];
-}
-
--(void)printHomes {
-    NSLog(@"Homes List");
-    for (HMHome *home in self.homes) {
-        NSLog(@"Home: %@", home.name);
-        for (HMAccessory *accessory in home.accessories) {
-            NSLog(@"- Home Accessory: %@, room : %@", accessory.name, accessory.room.name);
-//            for(HMService *service in accessory.services) {
-//                NSLog(@"- - Home Service: %@", service.name);
-//                for(HMCharacteristic *characteristic in service.characteristics) {
-//                    NSLog(@"- - - Home Characteristic: %@", characteristic.localizedDescription);
-//                }
-//            }
-        }
-    }
 }
 
 - (IBAction)menuClicked:(UIButton *)sender {
@@ -75,32 +50,102 @@
             [self.homeManager updatePrimaryHome:home completionHandler:^(NSError * _Nullable error) {
                 [self updateView];
             }];
-        }];
-        [alert addAction:homeAction];
+        }]; [alert addAction:homeAction];
     }
+    
+    UIAlertAction *addHomeAction = [UIAlertAction actionWithTitle:@"Add Home" style:UIAlertActionStyleDestructive handler:^(UIAlertAction * _Nonnull action) {
+        [self showAddHome];
+    }]; [alert addAction:addHomeAction];
     
     UIAlertAction *settingsAction = [UIAlertAction actionWithTitle:@"Home Settings" style:UIAlertActionStyleDestructive handler:^(UIAlertAction * _Nonnull action) {
         [self showHomeSettings];
-    }];
-    [alert addAction:settingsAction];
+    }]; [alert addAction:settingsAction];
     
-    UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {}];
-    [alert addAction:cancelAction];
+    UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {}]; [alert addAction:cancelAction];
 
-    [self presentViewController:alert animated:true completion:^{
-        NSLog(@"Alert Controller completed");
+    [self presentViewController:alert animated:true completion:nil];
+}
+
+- (void)showHomeSettings {
+    [self performSegueWithIdentifier:@"toSettings" sender:nil];
+}
+
+- (void)showAddHome {
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Add Home" message:@"Provide your name" preferredStyle:UIAlertControllerStyleAlert];
+    
+    // Action Items
+    UIAlertAction *confirmAction = [UIAlertAction actionWithTitle:@"Create" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        
+        NSString *homeName = alertController.textFields[0].text;
+        NSString *roomName = alertController.textFields[1].text;
+        
+        NSLog(@"Home Name : %@, Room Name : %@", homeName, roomName);
+        [self addHome:homeName :roomName];
+    }]; [alertController addAction:confirmAction];
+    
+    UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+    }]; [alertController addAction:cancelAction];
+    
+    // Text Fields
+    [alertController addTextFieldWithConfigurationHandler:^(UITextField * _Nonnull textField) {
+        textField.placeholder = @"Enter Home name";
     }];
+    [alertController addTextFieldWithConfigurationHandler:^(UITextField * _Nonnull textField) {
+        textField.placeholder = @"Enter Room name";
+    }];
+    
+    [self presentViewController:alertController animated:true completion:nil];
 }
 
 - (void)updateView {
     self.titleLabel.text = self.homeManager.primaryHome.name;
+    self.homes = self.homeManager.homes;
     [self.collectionView reloadData];
 }
 
-- (void)showHomeSettings {
-    [self performSegueWithIdentifier:@"homeSettings" sender:nil];
+/**
+ TODO: Need to move add home functionality to home settings controller later. Delegate will be moved to there.
+ */
+- (void)addHome:(NSString *) name :(NSString *) room {
+    // Create new home and new room
+    [self.homeManager addHomeWithName:name completionHandler:^(HMHome * _Nullable home, NSError * _Nullable error) {
+        if(error == nil) {
+            [home addRoomWithName: room completionHandler:^(HMRoom * _Nullable room, NSError * _Nullable error) {
+                if(error != nil) {
+                    NSLog(@"Error adding Room : %@", error);
+                }
+            }];
+            // Make primary home the new home
+            [self.homeManager updatePrimaryHome:home completionHandler:^(NSError * _Nullable error) {
+                [self updateView];
+            }];
+        } else {
+            NSLog(@"Error adding Home. Check if the %@ already exists", name);
+        }
+    }];
 }
 
+-(void)printHomes {
+    NSLog(@"Homes List");
+    for (HMHome *home in self.homes) {
+        NSLog(@"Home: %@", home.name);
+        for (HMAccessory *accessory in home.accessories) {
+            NSLog(@"- Home Accessory: %@, room : %@", accessory.name, accessory.room.name);
+        }
+        
+        for (HMRoom *room in home.rooms) {
+            NSLog(@"- Room: %@", room.name);
+            for (HMAccessory *accessory in room.accessories) {
+                NSLog(@"- - Home Accessory: %@, room : %@", accessory.name, accessory.room.name);
+            }
+        }
+    }
+    
+    NSLog(@"Rooms List");
+    for (HMRoom *room in _homeManager.primaryHome.rooms) {
+        NSLog(@"- Room: %@", room.name);
+    }
+}
 
 #pragma mark - Navigation
 
@@ -117,8 +162,9 @@
 
 - (void)homeManagerDidUpdateHomes:(HMHomeManager *)manager {
     NSLog(@"Change occured at homes!");
-    [self addHomes:self.homeManager.homes];
+    self.homes = self.homeManager.homes;
     [self updateView];
+    [self printHomes];
 }
 
 #pragma mark - HMHomeDelegate

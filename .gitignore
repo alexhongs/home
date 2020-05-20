@@ -1,6 +1,9 @@
 #userdata
-iHome.xcodeproj/project.xcworkspace/xcuserdata/*
-iHome.xcodeproj/xcuserdata
+.DS_Store
+iHome/.DS_Store
+iHome/Pods
+iHome/Podfile.lock
+**/xcuserdata/**
 
 # Xcode
 build/
