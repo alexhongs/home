@@ -12,7 +12,7 @@
 @interface HomeSettingsViewController ()
 @property (strong, nonatomic) IBOutlet UIView *containerView;
 @property (strong, nonatomic) IBOutlet UITableViewController *vc;
-@property (strong, nonatomic) SharedManager *shared;
+@property (strong, nonatomic) HomeStore *shared;
 @end
 
 @implementation HomeSettingsViewController
@@ -20,7 +20,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    _shared = [SharedManager shared];
+    _shared = [HomeStore shared];
 }
 
 - (IBAction)done:(id)sender {

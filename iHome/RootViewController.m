@@ -12,7 +12,7 @@
 #import "HomeStore.h"
 
 @interface RootViewController ()
-@property (strong, nonatomic) SharedManager *sharedManager;
+@property (strong, nonatomic) HomeStore *sharedManager;
 
 @property (nonatomic, strong) HMHomeManager *homeManager;
 @property (nonatomic, strong) NSArray<HMHome *> *homes;
@@ -29,7 +29,7 @@
     
     NSLog(@"RootViewContoller - View Did Load");
     // Do any additional setup after loading the view.
-    _sharedManager = [SharedManager shared];
+    _sharedManager = [HomeStore shared];
     
     self.homeManager = _sharedManager.homeManager;
     self.homeManager.delegate = self;
@@ -172,6 +172,9 @@
 
 #pragma mark - HMHomeDelegate
 - (void)home:(HMHome *)home didAddAccessory:(HMAccessory *)accessory {
+//    if([home isEqual:self.home]) {
+//        return;
+//    }
     
 }
 

@@ -10,7 +10,7 @@
 #import "HomeStore.h"
 
 @interface AutomationViewController ()
-@property (strong, nonatomic) SharedManager *sharedManager;
+@property (strong, nonatomic) HomeStore *sharedManager;
 @property (strong, nonatomic) HMHome *home;
 @property (strong, nonatomic) HMActionSet *actionSet;
 @end
@@ -20,7 +20,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    _sharedManager = [SharedManager shared];
+    _sharedManager = [HomeStore shared];
     _home = _sharedManager.homeManager.primaryHome;
 }
 

@@ -11,18 +11,22 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface SharedManager : NSObject {
+@interface HomeStore : NSObject {
     HMHomeManager *homeManager;
-    NSSet<NSObject *> *homeDelegates;
-    NSSet<NSObject *> *accessoryDelegates;
 }
 
 @property (nonatomic, retain) HMHomeManager *homeManager;
-@property (nonatomic, retain) NSSet<NSObject *> *homeDelegates;
-@property (nonatomic, retain) NSSet<NSObject *> *accessoryDelegates;
-
+// Singleton
 + (id)shared;
 
+// Home Delegate Methods
+- (void) addHomeDelegate: (NSObject *) delegate;
+- (void) removeHomeDelegate: (NSObject *) delegate;
+- (void) removeAllHomeDelegates;
+
+- (void) addAccessoryDelegate: (NSObject *) delegate;
+- (void) removeAccessoryDelegate: (NSObject *) delegate;
+- (void) removeAllAccessoryDelegates;
 @end
 
 NS_ASSUME_NONNULL_END
