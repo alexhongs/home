@@ -21,7 +21,7 @@
 		9351FF1D2475C01C0089FD42 /* AutomationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9351FF1C2475C01C0089FD42 /* AutomationViewController.m */; };
 		936AA9612474627900F97E7F /* RoomViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 936AA9602474627900F97E7F /* RoomViewController.m */; };
 		937F94F9246FB15900E9AD5F /* AccessoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 937F94F8246FB15900E9AD5F /* AccessoryViewController.m */; };
-		93E9A94F2471D58B00A47A5B /* SharedManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 93E9A94E2471D58B00A47A5B /* SharedManager.m */; };
+		93E9A94F2471D58B00A47A5B /* HomeStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 93E9A94E2471D58B00A47A5B /* HomeStore.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -50,8 +50,8 @@
 		936AA9602474627900F97E7F /* RoomViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RoomViewController.m; sourceTree = "<group>"; };
 		937F94F7246FB15900E9AD5F /* AccessoryViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AccessoryViewController.h; sourceTree = "<group>"; };
 		937F94F8246FB15900E9AD5F /* AccessoryViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AccessoryViewController.m; sourceTree = "<group>"; };
-		93E9A94D2471D58B00A47A5B /* SharedManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SharedManager.h; sourceTree = "<group>"; };
-		93E9A94E2471D58B00A47A5B /* SharedManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SharedManager.m; sourceTree = "<group>"; };
+		93E9A94D2471D58B00A47A5B /* HomeStore.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomeStore.h; sourceTree = "<group>"; };
+		93E9A94E2471D58B00A47A5B /* HomeStore.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomeStore.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,8 +86,8 @@
 		93320D532475C3E9005E15E8 /* shared */ = {
 			isa = PBXGroup;
 			children = (
-				93E9A94D2471D58B00A47A5B /* SharedManager.h */,
-				93E9A94E2471D58B00A47A5B /* SharedManager.m */,
+				93E9A94D2471D58B00A47A5B /* HomeStore.h */,
+				93E9A94E2471D58B00A47A5B /* HomeStore.m */,
 			);
 			path = shared;
 			sourceTree = "<group>";
@@ -219,7 +219,7 @@
 				934D02B324627F70005B2098 /* SceneDelegate.m in Sources */,
 				937F94F9246FB15900E9AD5F /* AccessoryViewController.m in Sources */,
 				934D02D224628B3C005B2098 /* RootViewController.m in Sources */,
-				93E9A94F2471D58B00A47A5B /* SharedManager.m in Sources */,
+				93E9A94F2471D58B00A47A5B /* HomeStore.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

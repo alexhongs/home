@@ -7,7 +7,7 @@
 //
 
 #import "HomeSettingsViewController.h"
-#import "SharedManager.h"
+#import "HomeStore.h"
 
 @interface HomeSettingsViewController ()
 @property (strong, nonatomic) IBOutlet UIView *containerView;
@@ -20,7 +20,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    _shared = [SharedManager sharedManager];
+    _shared = [SharedManager shared];
 }
 
 - (IBAction)done:(id)sender {

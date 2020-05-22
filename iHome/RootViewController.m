@@ -9,7 +9,7 @@
 #import "RootViewController.h"
 #import "AccessoryViewController.h"
 #import "HomeSettingsViewController.h"
-#import "SharedManager.h"
+#import "HomeStore.h"
 
 @interface RootViewController ()
 @property (strong, nonatomic) SharedManager *sharedManager;
@@ -29,7 +29,7 @@
     
     NSLog(@"RootViewContoller - View Did Load");
     // Do any additional setup after loading the view.
-    _sharedManager = [SharedManager sharedManager];
+    _sharedManager = [SharedManager shared];
     
     self.homeManager = _sharedManager.homeManager;
     self.homeManager.delegate = self;
@@ -137,6 +137,9 @@
             NSLog(@"- Room: %@", room.name);
             for (HMAccessory *accessory in room.accessories) {
                 NSLog(@"- - Home Accessory: %@, room : %@", accessory.name, accessory.room.name);
+                for (HMService *service in accessory.services) {
+                    NSLog(@"s : %@", service.name);
+                }
             }
         }
     }

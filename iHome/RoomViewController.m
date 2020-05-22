@@ -9,7 +9,7 @@
 #import "RoomViewController.h"
 
 #import "HomeSettingsViewController.h"
-#import "SharedManager.h"
+#import "HomeStore.h"
 
 @interface RoomViewController ()
 @property (strong, nonatomic) SharedManager *sharedManager;
@@ -29,7 +29,7 @@
     
     NSLog(@"RootViewContoller - View Did Load");
     // Do any additional setup after loading the view.
-    _sharedManager = [SharedManager sharedManager];
+    _sharedManager = [SharedManager shared];
     
     _homeManager = _sharedManager.homeManager;
     _home = _homeManager.primaryHome;

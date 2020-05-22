@@ -341,17 +341,68 @@
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Automation" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qsZ-9g-BSZ">
                                 <rect key="frame" x="30" y="44" width="354" height="124"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="124" id="Mbr-3L-Raf"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="44"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cnN-QR-bQb">
+                                <rect key="frame" x="30" y="685" width="117" height="49"/>
+                                <color key="backgroundColor" systemColor="linkColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="49" id="Clt-ND-6sE"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
+                                <state key="normal" title="See Actions">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="seeActions:" destination="8Ms-oW-uXz" eventType="touchUpInside" id="7fd-zw-fPK"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uFf-Bj-8uU">
+                                <rect key="frame" x="191" y="685" width="118" height="49"/>
+                                <color key="backgroundColor" systemColor="linkColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
+                                <state key="normal" title="Add Action">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="addAction:" destination="8Ms-oW-uXz" eventType="touchUpInside" id="2O1-LI-PXo"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6uo-j2-t8h">
+                                <rect key="frame" x="191" y="611" width="118" height="49"/>
+                                <color key="backgroundColor" systemColor="linkColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="49" id="sWn-Br-Wre"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
+                                <state key="normal" title="Remove Action">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="removeAction:" destination="8Ms-oW-uXz" eventType="touchUpInside" id="DwZ-OZ-U0d"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="0.83574385634813153" blue="0.83654841151860848" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="g84-bl-G8n" firstAttribute="bottom" secondItem="qsZ-9g-BSZ" secondAttribute="bottom" constant="645" id="L7S-qX-Ipf"/>
-                            <constraint firstItem="qsZ-9g-BSZ" firstAttribute="leading" secondItem="g84-bl-G8n" secondAttribute="leading" constant="30" id="UJE-qO-fZX"/>
-                            <constraint firstItem="qsZ-9g-BSZ" firstAttribute="centerX" secondItem="V8e-DA-6TA" secondAttribute="centerX" id="hm6-dq-SKI"/>
-                            <constraint firstItem="qsZ-9g-BSZ" firstAttribute="top" secondItem="g84-bl-G8n" secondAttribute="top" id="w8R-JO-MrM"/>
+                            <constraint firstItem="cnN-QR-bQb" firstAttribute="top" secondItem="uFf-Bj-8uU" secondAttribute="top" id="4gt-1z-BUY"/>
+                            <constraint firstItem="uFf-Bj-8uU" firstAttribute="top" secondItem="6uo-j2-t8h" secondAttribute="bottom" constant="25" id="80Q-Jv-pbH"/>
+                            <constraint firstItem="qsZ-9g-BSZ" firstAttribute="leading" secondItem="cnN-QR-bQb" secondAttribute="leading" id="A7q-N4-BYn"/>
+                            <constraint firstItem="cnN-QR-bQb" firstAttribute="baseline" secondItem="uFf-Bj-8uU" secondAttribute="firstBaseline" id="DcC-ry-CYl"/>
+                            <constraint firstItem="6uo-j2-t8h" firstAttribute="leading" secondItem="uFf-Bj-8uU" secondAttribute="leading" id="O2S-5x-85N"/>
+                            <constraint firstItem="qsZ-9g-BSZ" firstAttribute="leading" secondItem="g84-bl-G8n" secondAttribute="leading" constant="30" id="aSL-eJ-qiq"/>
+                            <constraint firstItem="6uo-j2-t8h" firstAttribute="trailing" secondItem="uFf-Bj-8uU" secondAttribute="trailing" id="ffs-CW-mwV"/>
+                            <constraint firstItem="uFf-Bj-8uU" firstAttribute="leading" secondItem="cnN-QR-bQb" secondAttribute="trailing" constant="44" id="giw-kF-Q1O"/>
+                            <constraint firstItem="qsZ-9g-BSZ" firstAttribute="centerX" secondItem="V8e-DA-6TA" secondAttribute="centerX" id="kFx-PJ-kFE"/>
+                            <constraint firstItem="g84-bl-G8n" firstAttribute="trailing" secondItem="6uo-j2-t8h" secondAttribute="trailing" constant="105" id="kMo-EP-dwg"/>
+                            <constraint firstItem="6uo-j2-t8h" firstAttribute="leading" secondItem="g84-bl-G8n" secondAttribute="leading" constant="191" id="pWz-AB-zWx"/>
+                            <constraint firstItem="g84-bl-G8n" firstAttribute="bottom" secondItem="cnN-QR-bQb" secondAttribute="bottom" constant="79" id="qAs-zW-Nji"/>
+                            <constraint firstItem="qsZ-9g-BSZ" firstAttribute="top" secondItem="g84-bl-G8n" secondAttribute="top" id="qtr-LG-TD3"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="g84-bl-G8n"/>
                     </view>
@@ -363,7 +414,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2uu-lt-Dmr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="51" y="1684"/>
+            <point key="canvasLocation" x="50.724637681159422" y="1683.4821428571429"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>

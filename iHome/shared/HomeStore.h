@@ -13,11 +13,15 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface SharedManager : NSObject {
     HMHomeManager *homeManager;
+    NSSet<NSObject *> *homeDelegates;
+    NSSet<NSObject *> *accessoryDelegates;
 }
 
 @property (nonatomic, retain) HMHomeManager *homeManager;
+@property (nonatomic, retain) NSSet<NSObject *> *homeDelegates;
+@property (nonatomic, retain) NSSet<NSObject *> *accessoryDelegates;
 
-+ (id)sharedManager;
++ (id)shared;
 
 @end
 
