@@ -108,6 +108,8 @@
  */
 - (void)addHome:(NSString *) name :(NSString *) room {
     // Create new home and new room
+    __weak typeof(self) weakSelf = self;
+    
     [self.homeManager addHomeWithName:name completionHandler:^(HMHome * _Nullable home, NSError * _Nullable error) {
         if(error == nil) {
             [home addRoomWithName: room completionHandler:^(HMRoom * _Nullable room, NSError * _Nullable error) {
@@ -115,10 +117,19 @@
                     NSLog(@"Error adding Room : %@", error);
                 }
             }];
-            // Make primary home the new home
-            [self.homeManager updatePrimaryHome:home completionHandler:^(NSError * _Nullable error) {
-                [self updateView];
-            }];
+            
+            
+            // Establish the strong self reference
+            __strong typeof(self) strongSelf = weakSelf;
+
+            if (strongSelf) {
+               [strongSelf.homeManager updatePrimaryHome:home completionHandler:^(NSError * _Nullable error) {
+                    [strongSelf updateView];
+                }];
+            } else {
+                // self doesn't exist
+            }
+            
         } else {
             NSLog(@"Error adding Home. Check if the %@ already exists", name);
         }
@@ -210,33 +221,7 @@
     
     HMAccessory *accessory = self.homeManager.primaryHome.accessories[indexPath.row];
     NSLog(@"Selected Item at %@ : %@", cellLabel.text, accessory.name);
-    HMCharacteristic *chrc;
-    for (HMService *servic in accessory.services) {
-        NSLog(@"- servic : %@", servic.name);
-        for (HMCharacteristic *charac in servic.characteristics) {
-            if([charac.localizedDescription  isEqual: @"Power State"]) {
-                chrc = charac;
-            }
-            NSLog(@"- - servic : %@", charac.localizedDescription);
-        }
-    }
-
-//    BOOL value = (BOOL) charac.value;
-//    NSNumber *val = [NSNumber numberWithInt:0];
-    [chrc readValueWithCompletionHandler:^(NSError * _Nullable error) {
-        NSLog(@"Error reading %@", error);
-    }];
-    
-    NSLog(@"val desc : %@", chrc.metadata.description);
-    NSLog(@"val m M : %@ %@", chrc.metadata.minimumValue, chrc.metadata.maximumValue);
-    NSLog(@"val desc : %@", [chrc value]);
-    for (NSNumber *value in chrc.metadata.validValues) {
-        NSLog(@"val : %@", value.description);
-    }
-
-    [chrc writeValue: chrc.value completionHandler:^(NSError * _Nullable error) {
-        NSLog(@"Error writing %@", error);
-    }];
+    //TODO: Make this clickable to toggle actions. (need Developer License)
 }
 
 /**
@@ -248,6 +233,10 @@
     HMAccessory *accessory = self.homeManager.primaryHome.accessories[indexPath.row];
     // TODO: Figure out activate accessoryVC with some delay. click for 2 sec events
     //    [self accessoryClicked: accessory];
+//    for (HMCharacteristic *ch in accessory.services.lastObject.characteristics){
+//        NSLog(@"c %@", ch.localizedDescription);
+//    }
+//
 }
 
 /**

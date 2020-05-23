@@ -53,7 +53,7 @@
     }
     
     UIAlertAction *addHomeAction = [UIAlertAction actionWithTitle:@"Add Room" style:UIAlertActionStyleDestructive handler:^(UIAlertAction * _Nonnull action) {
-        [self showAddHome];
+        [self showAddRoom];
     }]; [alert addAction:addHomeAction];
     
     UIAlertAction *settingsAction = [UIAlertAction actionWithTitle:@"Room Settings" style:UIAlertActionStyleDestructive handler:^(UIAlertAction * _Nonnull action) {
@@ -69,14 +69,24 @@
     [self performSegueWithIdentifier:@"toSettings" sender:nil];
 }
 
-- (void)showAddHome {
+- (void)showAddRoom {
     UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Room Home" message:@"Provide your name" preferredStyle:UIAlertControllerStyleAlert];
     
     // Action Items
     UIAlertAction *confirmAction = [UIAlertAction actionWithTitle:@"Create" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
         
-        NSString *name = alertController.textFields[0].text;
+        __weak typeof(self) weakSelf = self;
         
+        NSString *name = alertController.textFields[0].text;
+        NSLog(@"adding room name: %@", name);
+        [self.homeManager.primaryHome addRoomWithName:name completionHandler:^(HMRoom * _Nullable room, NSError * _Nullable error) {
+            if(error) {
+                NSLog(@"Error: %@", error);
+            } else{
+                __strong typeof(self) strongSelf = weakSelf;
+                [strongSelf updateView];
+            }
+        }];
         NSLog(@"Room Name : %@", name);
     }]; [alertController addAction:confirmAction];
     

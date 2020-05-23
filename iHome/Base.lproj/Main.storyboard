@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="JkD-TE-D2y">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="JkD-TE-D2y">
     <device id="retina6_5" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
@@ -225,16 +225,32 @@
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="q3t-8Y-tZE">
+                                <rect key="frame" x="13" y="57" width="34" height="32"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="32" id="wu7-yt-5bn"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <state key="normal" image="square.grid.2x2.fill" catalog="system">
+                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="large" weight="bold"/>
+                                </state>
+                                <connections>
+                                    <action selector="menuClicked:" destination="dBf-Tl-SBt" eventType="touchUpInside" id="Eqb-u2-Mxc"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.59221150519999999" green="0.60918089529999997" blue="0.81705927460000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="tI2-NS-qKJ" firstAttribute="top" secondItem="8Ze-hl-GWw" secondAttribute="top" id="1Et-ZP-fb5"/>
                             <constraint firstItem="Nk3-gz-E05" firstAttribute="top" secondItem="tI2-NS-qKJ" secondAttribute="bottom" constant="7" id="9eJ-Vn-UW3"/>
                             <constraint firstItem="Nk3-gz-E05" firstAttribute="leading" secondItem="8Ze-hl-GWw" secondAttribute="leading" id="NSm-t6-kHw"/>
+                            <constraint firstItem="q3t-8Y-tZE" firstAttribute="leading" secondItem="nhz-ht-Hno" secondAttribute="leadingMargin" constant="-7" id="VyH-4X-0Ta"/>
+                            <constraint firstItem="8Ze-hl-GWw" firstAttribute="trailing" secondItem="q3t-8Y-tZE" secondAttribute="trailing" constant="367" id="dkT-ig-nco"/>
                             <constraint firstItem="tI2-NS-qKJ" firstAttribute="leading" secondItem="8Ze-hl-GWw" secondAttribute="leading" constant="30" id="gUS-E1-YIU"/>
                             <constraint firstItem="Nk3-gz-E05" firstAttribute="centerX" secondItem="tI2-NS-qKJ" secondAttribute="centerX" id="hQN-MD-Awy"/>
                             <constraint firstItem="tI2-NS-qKJ" firstAttribute="centerX" secondItem="nhz-ht-Hno" secondAttribute="centerX" id="jxt-lg-cUe"/>
                             <constraint firstItem="8Ze-hl-GWw" firstAttribute="bottom" secondItem="Nk3-gz-E05" secondAttribute="bottom" constant="94" id="nXD-qX-v3z"/>
+                            <constraint firstItem="q3t-8Y-tZE" firstAttribute="top" secondItem="tI2-NS-qKJ" secondAttribute="top" constant="13" id="qyh-ds-s8b"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="8Ze-hl-GWw"/>
                     </view>

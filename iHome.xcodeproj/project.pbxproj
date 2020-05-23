@@ -21,6 +21,8 @@
 		9351FF1D2475C01C0089FD42 /* AutomationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9351FF1C2475C01C0089FD42 /* AutomationViewController.m */; };
 		936AA9612474627900F97E7F /* RoomViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 936AA9602474627900F97E7F /* RoomViewController.m */; };
 		937F94F9246FB15900E9AD5F /* AccessoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 937F94F8246FB15900E9AD5F /* AccessoryViewController.m */; };
+		93A176862479BA2E0010BD40 /* HomeStore+HomeDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 93A176852479BA2E0010BD40 /* HomeStore+HomeDelegate.m */; };
+		93A176882479BACE0010BD40 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 93A176872479BACE0010BD40 /* README.md */; };
 		93E9A94F2471D58B00A47A5B /* HomeStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 93E9A94E2471D58B00A47A5B /* HomeStore.m */; };
 /* End PBXBuildFile section */
 
@@ -50,6 +52,9 @@
 		936AA9602474627900F97E7F /* RoomViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RoomViewController.m; sourceTree = "<group>"; };
 		937F94F7246FB15900E9AD5F /* AccessoryViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AccessoryViewController.h; sourceTree = "<group>"; };
 		937F94F8246FB15900E9AD5F /* AccessoryViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AccessoryViewController.m; sourceTree = "<group>"; };
+		93A176842479BA2E0010BD40 /* HomeStore+HomeDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "HomeStore+HomeDelegate.h"; sourceTree = "<group>"; };
+		93A176852479BA2E0010BD40 /* HomeStore+HomeDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "HomeStore+HomeDelegate.m"; sourceTree = "<group>"; };
+		93A176872479BACE0010BD40 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		93E9A94D2471D58B00A47A5B /* HomeStore.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomeStore.h; sourceTree = "<group>"; };
 		93E9A94E2471D58B00A47A5B /* HomeStore.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomeStore.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -88,6 +93,8 @@
 			children = (
 				93E9A94D2471D58B00A47A5B /* HomeStore.h */,
 				93E9A94E2471D58B00A47A5B /* HomeStore.m */,
+				93A176842479BA2E0010BD40 /* HomeStore+HomeDelegate.h */,
+				93A176852479BA2E0010BD40 /* HomeStore+HomeDelegate.m */,
 			);
 			path = shared;
 			sourceTree = "<group>";
@@ -95,6 +102,7 @@
 		934D02A224627F70005B2098 = {
 			isa = PBXGroup;
 			children = (
+				93A176872479BACE0010BD40 /* README.md */,
 				934D02AD24627F70005B2098 /* iHome */,
 				934D02AC24627F70005B2098 /* Products */,
 				9303A21E246E2C500053EE06 /* Frameworks */,
@@ -198,6 +206,7 @@
 			files = (
 				934D02C124627F77005B2098 /* LaunchScreen.storyboard in Resources */,
 				934D02BE24627F77005B2098 /* Assets.xcassets in Resources */,
+				93A176882479BACE0010BD40 /* README.md in Resources */,
 				934D02B924627F70005B2098 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -217,6 +226,7 @@
 				934D02BC24627F70005B2098 /* iHome.xcdatamodeld in Sources */,
 				934D02B024627F70005B2098 /* AppDelegate.m in Sources */,
 				934D02B324627F70005B2098 /* SceneDelegate.m in Sources */,
+				93A176862479BA2E0010BD40 /* HomeStore+HomeDelegate.m in Sources */,
 				937F94F9246FB15900E9AD5F /* AccessoryViewController.m in Sources */,
 				934D02D224628B3C005B2098 /* RootViewController.m in Sources */,
 				93E9A94F2471D58B00A47A5B /* HomeStore.m in Sources */,
