@@ -210,8 +210,33 @@
     
     HMAccessory *accessory = self.homeManager.primaryHome.accessories[indexPath.row];
     NSLog(@"Selected Item at %@ : %@", cellLabel.text, accessory.name);
+    HMCharacteristic *chrc;
+    for (HMService *servic in accessory.services) {
+        NSLog(@"- servic : %@", servic.name);
+        for (HMCharacteristic *charac in servic.characteristics) {
+            if([charac.localizedDescription  isEqual: @"Power State"]) {
+                chrc = charac;
+            }
+            NSLog(@"- - servic : %@", charac.localizedDescription);
+        }
+    }
+
+//    BOOL value = (BOOL) charac.value;
+//    NSNumber *val = [NSNumber numberWithInt:0];
+    [chrc readValueWithCompletionHandler:^(NSError * _Nullable error) {
+        NSLog(@"Error reading %@", error);
+    }];
     
-    [self accessoryClicked:accessory];
+    NSLog(@"val desc : %@", chrc.metadata.description);
+    NSLog(@"val m M : %@ %@", chrc.metadata.minimumValue, chrc.metadata.maximumValue);
+    NSLog(@"val desc : %@", [chrc value]);
+    for (NSNumber *value in chrc.metadata.validValues) {
+        NSLog(@"val : %@", value.description);
+    }
+
+    [chrc writeValue: chrc.value completionHandler:^(NSError * _Nullable error) {
+        NSLog(@"Error writing %@", error);
+    }];
 }
 
 /**
@@ -220,6 +245,9 @@
 - (void)collectionView:(UICollectionView *)collectionView didHighlightItemAtIndexPath:(NSIndexPath *)indexPath {
     UICollectionViewCell *cell = [collectionView cellForItemAtIndexPath:indexPath];
     cell.backgroundColor = UIColor.lightGrayColor;
+    HMAccessory *accessory = self.homeManager.primaryHome.accessories[indexPath.row];
+    // TODO: Figure out activate accessoryVC with some delay. click for 2 sec events
+    //    [self accessoryClicked: accessory];
 }
 
 /**
