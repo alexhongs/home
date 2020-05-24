@@ -10,47 +10,52 @@
 @implementation HomeStore (HomeStoreHomeDelegate)
 
 - (void) addHomeDelegate: (NSObject *) delegate {
+    NSLog(@"HS: addHomeDelegate: %@", delegate.description);
     [self.homeDelegates addObject:delegate];
-    NSLog(@"addHomeDelegate: %@", delegate.description);
 }
 
 - (void) removeHomeDelegate: (NSObject *) delegate {
+    NSLog(@"HS: removeHomeDelegate: %@", delegate.description);
     [self.homeDelegates removeObject:delegate];
-    NSLog(@"removeHomeDelegate: %@", delegate.description);
 }
 
 - (void) removeAllHomeDelegates {
+    NSLog(@"HS: removeAllHomeDelegates");
     [self.homeDelegates removeAllObjects];
-    NSLog(@"removeAllHomeDelegates");
 }
 
 
 //Distribute received notification to home delegates
 - (void) homeDidUpdateName:(HMHome *)home {
+    NSLog(@"HS: homeDidUpdateName");
     for (NSObject<HMHomeDelegate>* delegate in self.homeDelegates) {
         [delegate homeDidUpdateName:home];
     }
 }
 
 - (void) home:(HMHome *)home didAddRoom:(HMRoom *)room {
+    NSLog(@"HS: didAddRoom");
     for (NSObject<HMHomeDelegate>* delegate in self.homeDelegates) {
         [delegate home:home didAddRoom:room];
     }
 }
 
 - (void) home:(HMHome *)home didRemoveRoom:(nonnull HMRoom *)room {
+    NSLog(@"HS: didRemoveRoom");
     for (NSObject<HMHomeDelegate>* delegate in self.homeDelegates) {
         [delegate home:home didRemoveRoom:room];
     }
 }
 
 - (void) home:(HMHome *)home didAddAccessory:(nonnull HMAccessory *)accessory {
+    NSLog(@"HS: didAddAccessory");
     for (NSObject<HMHomeDelegate>* delegate in self.homeDelegates) {
         [delegate home:home didAddAccessory:accessory];
     }
 }
 
 - (void) home:(HMHome *)home didRemoveAccessory:(nonnull HMAccessory *)accessory {
+    NSLog(@"HS: didRemoveAccessory");
     for (NSObject<HMHomeDelegate>* delegate in self.homeDelegates) {
         [delegate home:home didRemoveAccessory:accessory];
     }
