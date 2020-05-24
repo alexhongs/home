@@ -31,7 +31,8 @@
     // Do any additional setup after loading the view.
     _sharedManager = [HomeStore shared];
     
-    self.homeManager = _sharedManager.homeManager;
+    
+    
     self.homeManager.delegate = self;
     
     self.collectionView.delegate = self;

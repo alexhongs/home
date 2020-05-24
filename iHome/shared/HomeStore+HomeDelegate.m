@@ -8,6 +8,21 @@
 
 #import "HomeStore+HomeDelegate.h"
 
-@implementation HomeStore (HomeStoreHomeDelgate)
+@implementation HomeStore (HomeStoreHomeDelegate)
+
+- (void) addHomeDelegate: (NSObject *) delegate {
+    [self.homeDelegates addObject:delegate];
+    NSLog(@"addHomeDelegate: %@", delegate.description);
+}
+
+- (void) removeHomeDelegate: (NSObject *) delegate {
+    [self.homeDelegates removeObject:delegate];
+    NSLog(@"removeHomeDelegate: %@", delegate.description);
+}
+
+- (void) removeAllHomeDelegates {
+    [self.homeDelegates removeAllObjects];
+    NSLog(@"removeAllHomeDelegates");
+}
 
 @end

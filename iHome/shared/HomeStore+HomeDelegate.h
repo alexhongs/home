@@ -9,6 +9,8 @@
 #import <Foundation/Foundation.h>
 #import "HomeStore.h"
 
-@interface HomeStore (HomeStoreHomeDelgate)
-
+@interface HomeStore (HomeStoreHomeDelegate)
+- (void) addHomeDelegate: (NSObject *) delegate;
+- (void) removeHomeDelegate: (NSObject *) delegate;
+- (void) removeAllHomeDelegates;
 @end

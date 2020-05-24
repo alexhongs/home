@@ -8,12 +8,7 @@
 
 #import "HomeStore.h"
 @interface HomeStore () {
-    NSMutableSet<NSObject *> *homeDelegates;
-    NSMutableSet<NSObject *> *accessoryDelegates;
 }
-@property (nonatomic, retain) NSSet<NSObject *> *homeDelegates;
-@property (nonatomic, retain) NSSet<NSObject *> *accessoryDelegates;
-
 @end
 
 
@@ -44,35 +39,4 @@
     }
     return self;
 }
-
-- (void) addHomeDelegate: (NSObject *) delegate {
-    [homeDelegates addObject:delegate];
-    NSLog(@"addHomeDelegate: %@", delegate.description);
-}
-
-- (void) removeHomeDelegate: (NSObject *) delegate {
-    [homeDelegates removeObject:delegate];
-    NSLog(@"removeHomeDelegate: %@", delegate.description);
-}
-
-- (void) removeAllHomeDelegates {
-    [homeDelegates removeAllObjects];
-    NSLog(@"removeAllHomeDelegates");
-}
-
-- (void) addAccessoryDelegate: (NSObject *) delegate {
-    [accessoryDelegates addObject:delegate];
-    NSLog(@"addAccessoryDelegate: %@", delegate.description);
-}
-
-- (void) removeAccessoryDelegate: (NSObject *) delegate {
-    [accessoryDelegates removeObject:delegate];
-    NSLog(@"removeAccessoryDelegate: %@", delegate.description);
-}
-
-- (void) removeAllAccessoryDelegates {
-    [accessoryDelegates removeAllObjects];
-    NSLog(@"removeAllAccessoryDelegates");
-}
-
 @end
