@@ -9,13 +9,10 @@
 #import "RootViewController.h"
 #import "AccessoryViewController.h"
 #import "HomeSettingsViewController.h"
-#import "HomeStore.h"
+//#import "HomeStore.h"
+#import "HomeStore+HomeDelegate.h"
 
 @interface RootViewController ()
-@property (strong, nonatomic) HomeStore *sharedManager;
-
-@property (nonatomic, strong) HMHomeManager *homeManager;
-@property (nonatomic, strong) NSArray<HMHome *> *homes;
 
 @property (strong, nonatomic) IBOutlet UICollectionView *collectionView;
 @property (strong, nonatomic) IBOutlet UILabel *titleLabel;
@@ -26,17 +23,14 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    HomeStore *shared = [HomeStore shared];
+    [shared addHomeDelegate:self];
     
-    NSLog(@"RootViewContoller - View Did Load");
-    // Do any additional setup after loading the view.
-    _sharedManager = [HomeStore shared];
+    _homeManager = shared.homeManager;
+    _homeManager.delegate = self;
     
-    
-    
-    self.homeManager.delegate = self;
-    
-    self.collectionView.delegate = self;
-    self.collectionView.dataSource = self;
+    _collectionView.delegate = self;
+    _collectionView.dataSource = self;
 }
 
 -(void)accessoryClicked: (HMAccessory *)accessory{
@@ -48,7 +42,8 @@
     
     for (HMHome *home in self.homes) {
         UIAlertAction *homeAction = [UIAlertAction actionWithTitle:home.name style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-            [self.homeManager updatePrimaryHome:home completionHandler:^(NSError * _Nullable error) {
+            HomeStore *shared = [HomeStore shared];
+            [shared.homeManager updatePrimaryHome:home completionHandler:^(NSError * _Nullable error) {
                 [self updateView];
             }];
         }]; [alert addAction:homeAction];
@@ -171,15 +166,6 @@
         AccessoryViewController *vc = [segue destinationViewController];
         vc.accessory = sender;
     }
-}
-
-#pragma mark - HMHomeManagerDelegate
-
-- (void)homeManagerDidUpdateHomes:(HMHomeManager *)manager {
-    NSLog(@"Change occured at homes!");
-    self.homes = self.homeManager.homes;
-    [self updateView];
-    [self printHomes];
 }
 
 #pragma mark - HMHomeDelegate

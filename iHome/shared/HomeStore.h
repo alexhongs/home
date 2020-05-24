@@ -11,7 +11,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface HomeStore : NSObject {
+@interface HomeStore : NSObject<HMHomeDelegate> {
     HMHomeManager *homeManager;
     NSMutableSet<NSObject *> *homeDelegates;
     NSMutableSet<NSObject *> *accessoryDelegates;

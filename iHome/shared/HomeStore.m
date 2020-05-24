@@ -7,8 +7,7 @@
 //
 
 #import "HomeStore.h"
-@interface HomeStore () {
-}
+@interface HomeStore () {}
 @end
 
 

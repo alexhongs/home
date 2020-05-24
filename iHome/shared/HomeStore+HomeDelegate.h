@@ -13,4 +13,13 @@
 - (void) addHomeDelegate: (NSObject *) delegate;
 - (void) removeHomeDelegate: (NSObject *) delegate;
 - (void) removeAllHomeDelegates;
+
+- (void) homeDidUpdateName:(HMHome *)home;
+
+- (void) home:(HMHome *)home didAddRoom:(HMRoom *)room;
+- (void) home:(HMHome *)home didRemoveRoom:(nonnull HMRoom *)room;
+
+- (void) home:(HMHome *)home didAddAccessory:(nonnull HMAccessory *)accessory;
+- (void) home:(HMHome *)home didRemoveAccessory:(nonnull HMAccessory *)accessory;
+
 @end

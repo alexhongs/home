@@ -12,6 +12,11 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface RootViewController : UIViewController<HMHomeManagerDelegate, HMHomeDelegate, UICollectionViewDelegate, UICollectionViewDataSource>
 
+    @property (nonatomic, strong) NSArray<HMHome *> *homes;
+    @property (nonatomic, strong) HMHomeManager *homeManager;
+
+- (void) updateView;
+- (void) printHomes;
 @end
 
 NS_ASSUME_NONNULL_END
