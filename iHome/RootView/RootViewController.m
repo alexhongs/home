@@ -9,13 +9,10 @@
 #import "RootViewController.h"
 #import "AccessoryViewController.h"
 #import "HomeSettingsViewController.h"
-#import "SharedManager.h"
+//#import "HomeStore.h"
+#import "HomeStore+HomeDelegate.h"
 
 @interface RootViewController ()
-@property (strong, nonatomic) SharedManager *sharedManager;
-
-@property (nonatomic, strong) HMHomeManager *homeManager;
-@property (nonatomic, strong) NSArray<HMHome *> *homes;
 
 @property (strong, nonatomic) IBOutlet UICollectionView *collectionView;
 @property (strong, nonatomic) IBOutlet UILabel *titleLabel;
@@ -26,16 +23,14 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    HomeStore *shared = [HomeStore shared];
+    [shared addHomeDelegate:self];
     
-    NSLog(@"RootViewContoller - View Did Load");
-    // Do any additional setup after loading the view.
-    _sharedManager = [SharedManager sharedManager];
+    _homeManager = shared.homeManager;
+    _homeManager.delegate = self;
     
-    self.homeManager = _sharedManager.homeManager;
-    self.homeManager.delegate = self;
-    
-    self.collectionView.delegate = self;
-    self.collectionView.dataSource = self;
+    _collectionView.delegate = self;
+    _collectionView.dataSource = self;
 }
 
 -(void)accessoryClicked: (HMAccessory *)accessory{
@@ -47,7 +42,8 @@
     
     for (HMHome *home in self.homes) {
         UIAlertAction *homeAction = [UIAlertAction actionWithTitle:home.name style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-            [self.homeManager updatePrimaryHome:home completionHandler:^(NSError * _Nullable error) {
+            HomeStore *shared = [HomeStore shared];
+            [shared.homeManager updatePrimaryHome:home completionHandler:^(NSError * _Nullable error) {
                 [self updateView];
             }];
         }]; [alert addAction:homeAction];
@@ -108,6 +104,8 @@
  */
 - (void)addHome:(NSString *) name :(NSString *) room {
     // Create new home and new room
+    __weak typeof(self) weakSelf = self;
+    
     [self.homeManager addHomeWithName:name completionHandler:^(HMHome * _Nullable home, NSError * _Nullable error) {
         if(error == nil) {
             [home addRoomWithName: room completionHandler:^(HMRoom * _Nullable room, NSError * _Nullable error) {
@@ -115,10 +113,19 @@
                     NSLog(@"Error adding Room : %@", error);
                 }
             }];
-            // Make primary home the new home
-            [self.homeManager updatePrimaryHome:home completionHandler:^(NSError * _Nullable error) {
-                [self updateView];
-            }];
+            
+            
+            // Establish the strong self reference
+            __strong typeof(self) strongSelf = weakSelf;
+
+            if (strongSelf) {
+               [strongSelf.homeManager updatePrimaryHome:home completionHandler:^(NSError * _Nullable error) {
+                    [strongSelf updateView];
+                }];
+            } else {
+                // self doesn't exist
+            }
+            
         } else {
             NSLog(@"Error adding Home. Check if the %@ already exists", name);
         }
@@ -137,6 +144,9 @@
             NSLog(@"- Room: %@", room.name);
             for (HMAccessory *accessory in room.accessories) {
                 NSLog(@"- - Home Accessory: %@, room : %@", accessory.name, accessory.room.name);
+                for (HMService *service in accessory.services) {
+                    NSLog(@"s : %@", service.name);
+                }
             }
         }
     }
@@ -158,17 +168,11 @@
     }
 }
 
-#pragma mark - HMHomeManagerDelegate
-
-- (void)homeManagerDidUpdateHomes:(HMHomeManager *)manager {
-    NSLog(@"Change occured at homes!");
-    self.homes = self.homeManager.homes;
-    [self updateView];
-    [self printHomes];
-}
-
 #pragma mark - HMHomeDelegate
 - (void)home:(HMHome *)home didAddAccessory:(HMAccessory *)accessory {
+//    if([home isEqual:self.home]) {
+//        return;
+//    }
     
 }
 
@@ -192,7 +196,7 @@
     UICollectionViewCell *item = [self.collectionView dequeueReusableCellWithReuseIdentifier:@"collectionCell" forIndexPath:indexPath];
     UILabel *label = [item viewWithTag:100];
     label.text = self.homeManager.primaryHome.accessories[indexPath.row].name;
-    item.backgroundColor = UIColor.lightGrayColor;
+    item.backgroundColor = UIColor.whiteColor;
     return item;
 }
 
@@ -204,8 +208,7 @@
     
     HMAccessory *accessory = self.homeManager.primaryHome.accessories[indexPath.row];
     NSLog(@"Selected Item at %@ : %@", cellLabel.text, accessory.name);
-    
-    [self accessoryClicked:accessory];
+    //TODO: Make this clickable to toggle actions. (need Developer License)
 }
 
 /**
@@ -213,7 +216,14 @@
  */
 - (void)collectionView:(UICollectionView *)collectionView didHighlightItemAtIndexPath:(NSIndexPath *)indexPath {
     UICollectionViewCell *cell = [collectionView cellForItemAtIndexPath:indexPath];
-    cell.backgroundColor = UIColor.darkGrayColor;
+    cell.backgroundColor = UIColor.lightGrayColor;
+    HMAccessory *accessory = self.homeManager.primaryHome.accessories[indexPath.row];
+    // TODO: Figure out activate accessoryVC with some delay. click for 2 sec events
+    //    [self accessoryClicked: accessory];
+//    for (HMCharacteristic *ch in accessory.services.lastObject.characteristics){
+//        NSLog(@"c %@", ch.localizedDescription);
+//    }
+//
 }
 
 /**
@@ -221,7 +231,7 @@ Triggered when cell item is released
 */
 - (void)collectionView:(UICollectionView *)collectionView didUnhighlightItemAtIndexPath:(NSIndexPath *)indexPath {
     UICollectionViewCell *cell = [collectionView cellForItemAtIndexPath:indexPath];
-    cell.backgroundColor = UIColor.lightGrayColor;
+    cell.backgroundColor = UIColor.whiteColor;
 }
 
 @end

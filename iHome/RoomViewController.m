@@ -9,10 +9,10 @@
 #import "RoomViewController.h"
 
 #import "HomeSettingsViewController.h"
-#import "SharedManager.h"
+#import "HomeStore.h"
 
 @interface RoomViewController ()
-@property (strong, nonatomic) SharedManager *sharedManager;
+@property (strong, nonatomic) HomeStore *sharedManager;
 
 @property (nonatomic, strong) HMHomeManager *homeManager;
 @property (nonatomic, strong) HMHome *home;
@@ -29,7 +29,7 @@
     
     NSLog(@"RootViewContoller - View Did Load");
     // Do any additional setup after loading the view.
-    _sharedManager = [SharedManager sharedManager];
+    _sharedManager = [HomeStore shared];
     
     _homeManager = _sharedManager.homeManager;
     _home = _homeManager.primaryHome;
@@ -53,7 +53,7 @@
     }
     
     UIAlertAction *addHomeAction = [UIAlertAction actionWithTitle:@"Add Room" style:UIAlertActionStyleDestructive handler:^(UIAlertAction * _Nonnull action) {
-        [self showAddHome];
+        [self showAddRoom];
     }]; [alert addAction:addHomeAction];
     
     UIAlertAction *settingsAction = [UIAlertAction actionWithTitle:@"Room Settings" style:UIAlertActionStyleDestructive handler:^(UIAlertAction * _Nonnull action) {
@@ -69,14 +69,24 @@
     [self performSegueWithIdentifier:@"toSettings" sender:nil];
 }
 
-- (void)showAddHome {
+- (void)showAddRoom {
     UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Room Home" message:@"Provide your name" preferredStyle:UIAlertControllerStyleAlert];
     
     // Action Items
     UIAlertAction *confirmAction = [UIAlertAction actionWithTitle:@"Create" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
         
-        NSString *name = alertController.textFields[0].text;
+        __weak typeof(self) weakSelf = self;
         
+        NSString *name = alertController.textFields[0].text;
+        NSLog(@"adding room name: %@", name);
+        [self.homeManager.primaryHome addRoomWithName:name completionHandler:^(HMRoom * _Nullable room, NSError * _Nullable error) {
+            if(error) {
+                NSLog(@"Error: %@", error);
+            } else{
+                __strong typeof(self) strongSelf = weakSelf;
+                [strongSelf updateView];
+            }
+        }];
         NSLog(@"Room Name : %@", name);
     }]; [alertController addAction:confirmAction];
     
@@ -118,7 +128,7 @@
     UICollectionViewCell *item = [self.collectionView dequeueReusableCellWithReuseIdentifier:@"collectionCell" forIndexPath:indexPath];
     UILabel *label = [item viewWithTag:100];
     label.text = self.homeManager.primaryHome.rooms[0].accessories[indexPath.row].name;
-    item.backgroundColor = UIColor.lightGrayColor;
+    item.backgroundColor = UIColor.whiteColor;
     return item;
 }
 
@@ -140,7 +150,7 @@
  */
 - (void)collectionView:(UICollectionView *)collectionView didHighlightItemAtIndexPath:(NSIndexPath *)indexPath {
     UICollectionViewCell *cell = [collectionView cellForItemAtIndexPath:indexPath];
-    cell.backgroundColor = UIColor.darkGrayColor;
+    cell.backgroundColor = UIColor.lightGrayColor;
 }
 
 /**
@@ -148,7 +158,7 @@ Triggered when cell item is released
 */
 - (void)collectionView:(UICollectionView *)collectionView didUnhighlightItemAtIndexPath:(NSIndexPath *)indexPath {
     UICollectionViewCell *cell = [collectionView cellForItemAtIndexPath:indexPath];
-    cell.backgroundColor = UIColor.lightGrayColor;
+    cell.backgroundColor = UIColor.whiteColor;
 }
 
 @end
