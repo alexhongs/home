@@ -32,33 +32,38 @@
     _collectionView.dataSource = self;
 }
 
--(void)accessoryClicked: (HMAccessory *)accessory{
-    [self performSegueWithIdentifier:@"toAccessory" sender:accessory];
-}
-
 - (IBAction)menuClicked:(UIButton *)sender {
+    // Lazily update local homelist in case new home is added
+    HomeStore *hs = [HomeStore shared];
+    self.homes = hs.homeManager.homes;
+    
     UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Your Homes" message:@"Choose your home" preferredStyle:UIAlertControllerStyleActionSheet];
     
+    // Home List
     for (HMHome *home in self.homes) {
         UIAlertAction *homeAction = [UIAlertAction actionWithTitle:home.name style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-            HomeStore *shared = [HomeStore shared];
-            [shared.homeManager updatePrimaryHome:home completionHandler:^(NSError * _Nullable error) {
-                [self updateView];
-            }];
+            [self switchPrimaryHome:home];
         }]; [alert addAction:homeAction];
     }
     
+    // Add Home
     UIAlertAction *addHomeAction = [UIAlertAction actionWithTitle:@"Add Home" style:UIAlertActionStyleDestructive handler:^(UIAlertAction * _Nonnull action) {
         [self showAddHome];
     }]; [alert addAction:addHomeAction];
     
+    // Home Settings (this will have add, remove home later)
     UIAlertAction *settingsAction = [UIAlertAction actionWithTitle:@"Home Settings" style:UIAlertActionStyleDestructive handler:^(UIAlertAction * _Nonnull action) {
         [self showHomeSettings];
     }]; [alert addAction:settingsAction];
     
+    // Cancel
     UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {}]; [alert addAction:cancelAction];
 
     [self presentViewController:alert animated:true completion:nil];
+}
+
+-(void)accessoryClicked: (HMAccessory *)accessory{
+    [self performSegueWithIdentifier:@"toAccessory" sender:accessory];
 }
 
 - (void)showHomeSettings {
@@ -93,9 +98,18 @@
 }
 
 - (void)updateView {
-    self.titleLabel.text = self.homeManager.primaryHome.name;
-    self.homes = self.homeManager.homes;
+    NSLog(@"RootVC: updateView");
+    HomeStore *hs = [HomeStore shared];
+    self.homes = hs.homeManager.homes;
+    self.titleLabel.text = hs.homeManager.primaryHome.name;
     [self.collectionView reloadData];
+}
+
+- (void)switchPrimaryHome: (HMHome *)home {
+    HomeStore *hs = [HomeStore shared];
+    [hs.homeManager updatePrimaryHome:home completionHandler:^(NSError * _Nullable error) {
+         [self updateView];
+    }];
 }
 
 /**
@@ -112,21 +126,13 @@
                     NSLog(@"Error adding Room : %@", error);
                 }
             }];
-            
-            
             // Establish the strong self reference
             __strong typeof(self) strongSelf = weakSelf;
 
-            if (strongSelf) {
-               [strongSelf.homeManager updatePrimaryHome:home completionHandler:^(NSError * _Nullable error) {
-                    [strongSelf updateView];
-                }];
-            } else {
-                // self doesn't exist
-            }
-            
+            if (strongSelf) { [strongSelf switchPrimaryHome:home]; }
         } else {
             NSLog(@"Error adding Home. Check if the %@ already exists", name);
+            // TODO: We could make user retype, or another option is to add Room to existing home
         }
     }];
 }

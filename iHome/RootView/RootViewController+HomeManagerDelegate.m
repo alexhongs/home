@@ -16,8 +16,7 @@
     NSLog(@"RootVC: homeManagerDidUpdateHomes (%lu)", manager.homes.count);
     HomeStore *shared = [HomeStore shared];
     self.homes = shared.homeManager.homes;
-//    [self updateView];
-//    [self printHomes];
+    [self updateView];
 }
 
 

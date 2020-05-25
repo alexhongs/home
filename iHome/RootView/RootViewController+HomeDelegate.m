@@ -13,22 +13,27 @@
 
 - (void) homeDidUpdateName:(HMHome *)home {
     NSLog(@"RootVC: homeDidUpdateName");
+    [self updateView];
 }
 
 - (void) home:(HMHome *)home didAddRoom:(HMRoom *)room {
     NSLog(@"RootVC: didAddRoom");
+    [self updateView];
 }
 
 - (void) home:(HMHome *)home didRemoveRoom:(nonnull HMRoom *)room {
     NSLog(@"RootVC: didRemoveRoom");
+    [self updateView];
 }
 
 - (void)home:(HMHome *)home didAddAccessory:(HMAccessory *)accessory {
     NSLog(@"RootVC: didAddAccessory");
+    [self updateView];
 }
 
 - (void)home:(HMHome *)home didRemoveAccessory:(HMAccessory *)accessory {
     NSLog(@"RootVC: didRemoveAccessory");
+    [self updateView];
 }
 
 @end
