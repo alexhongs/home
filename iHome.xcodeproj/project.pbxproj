@@ -17,14 +17,16 @@
 		934D02C124627F77005B2098 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 934D02BF24627F77005B2098 /* LaunchScreen.storyboard */; };
 		934D02C424627F77005B2098 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 934D02C324627F77005B2098 /* main.m */; };
 		934D02D224628B3C005B2098 /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 934D02D124628B3C005B2098 /* RootViewController.m */; };
-		934D02D524628BBB005B2098 /* Person.m in Sources */ = {isa = PBXBuildFile; fileRef = 934D02D424628BBB005B2098 /* Person.m */; };
 		9351FF1D2475C01C0089FD42 /* AutomationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9351FF1C2475C01C0089FD42 /* AutomationViewController.m */; };
 		936AA9612474627900F97E7F /* RoomViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 936AA9602474627900F97E7F /* RoomViewController.m */; };
 		937F94F9246FB15900E9AD5F /* AccessoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 937F94F8246FB15900E9AD5F /* AccessoryViewController.m */; };
 		93A176862479BA2E0010BD40 /* HomeStore+HomeDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 93A176852479BA2E0010BD40 /* HomeStore+HomeDelegate.m */; };
 		93A176882479BACE0010BD40 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 93A176872479BACE0010BD40 /* README.md */; };
 		93A1768B2479D2F10010BD40 /* HomeStore+AccessoryDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 93A1768A2479D2F10010BD40 /* HomeStore+AccessoryDelegate.m */; };
-		93A1768F247A2BBA0010BD40 /* RootViewController+HomeManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 93A1768E247A2BBA0010BD40 /* RootViewController+HomeManager.m */; };
+		93A1768F247A2BBA0010BD40 /* RootViewController+HomeManagerDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 93A1768E247A2BBA0010BD40 /* RootViewController+HomeManagerDelegate.m */; };
+		93A17696247A45BC0010BD40 /* RootViewController+HomeDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 93A17695247A45BC0010BD40 /* RootViewController+HomeDelegate.m */; };
+		93A17699247A5C930010BD40 /* RootViewController+CollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 93A17698247A5C930010BD40 /* RootViewController+CollectionView.m */; };
+		93A1769C247B5AE80010BD40 /* RoomViewController+CollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 93A1769B247B5AE80010BD40 /* RoomViewController+CollectionView.m */; };
 		93E9A94F2471D58B00A47A5B /* HomeStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 93E9A94E2471D58B00A47A5B /* HomeStore.m */; };
 /* End PBXBuildFile section */
 
@@ -46,8 +48,6 @@
 		934D02C324627F77005B2098 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		934D02D024628B3C005B2098 /* RootViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RootViewController.h; sourceTree = "<group>"; };
 		934D02D124628B3C005B2098 /* RootViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RootViewController.m; sourceTree = "<group>"; };
-		934D02D324628BBB005B2098 /* Person.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Person.h; sourceTree = "<group>"; };
-		934D02D424628BBB005B2098 /* Person.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Person.m; sourceTree = "<group>"; };
 		9351FF1B2475C01C0089FD42 /* AutomationViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AutomationViewController.h; sourceTree = "<group>"; };
 		9351FF1C2475C01C0089FD42 /* AutomationViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AutomationViewController.m; sourceTree = "<group>"; };
 		936AA95F2474627900F97E7F /* RoomViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RoomViewController.h; sourceTree = "<group>"; };
@@ -59,8 +59,14 @@
 		93A176872479BACE0010BD40 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		93A176892479D2F10010BD40 /* HomeStore+AccessoryDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "HomeStore+AccessoryDelegate.h"; sourceTree = "<group>"; };
 		93A1768A2479D2F10010BD40 /* HomeStore+AccessoryDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "HomeStore+AccessoryDelegate.m"; sourceTree = "<group>"; };
-		93A1768D247A2BBA0010BD40 /* RootViewController+HomeManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "RootViewController+HomeManager.h"; sourceTree = "<group>"; };
-		93A1768E247A2BBA0010BD40 /* RootViewController+HomeManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "RootViewController+HomeManager.m"; sourceTree = "<group>"; };
+		93A1768D247A2BBA0010BD40 /* RootViewController+HomeManagerDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "RootViewController+HomeManagerDelegate.h"; sourceTree = "<group>"; };
+		93A1768E247A2BBA0010BD40 /* RootViewController+HomeManagerDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "RootViewController+HomeManagerDelegate.m"; sourceTree = "<group>"; };
+		93A17694247A45BC0010BD40 /* RootViewController+HomeDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "RootViewController+HomeDelegate.h"; sourceTree = "<group>"; };
+		93A17695247A45BC0010BD40 /* RootViewController+HomeDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "RootViewController+HomeDelegate.m"; sourceTree = "<group>"; };
+		93A17697247A5C930010BD40 /* RootViewController+CollectionView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "RootViewController+CollectionView.h"; sourceTree = "<group>"; };
+		93A17698247A5C930010BD40 /* RootViewController+CollectionView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "RootViewController+CollectionView.m"; sourceTree = "<group>"; };
+		93A1769A247B5AE80010BD40 /* RoomViewController+CollectionView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "RoomViewController+CollectionView.h"; sourceTree = "<group>"; };
+		93A1769B247B5AE80010BD40 /* RoomViewController+CollectionView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "RoomViewController+CollectionView.m"; sourceTree = "<group>"; };
 		93E9A94D2471D58B00A47A5B /* HomeStore.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomeStore.h; sourceTree = "<group>"; };
 		93E9A94E2471D58B00A47A5B /* HomeStore.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomeStore.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -83,15 +89,6 @@
 				9303A21F246E2C500053EE06 /* HomeKit.framework */,
 			);
 			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		93320D522475C3B7005E15E8 /* etc */ = {
-			isa = PBXGroup;
-			children = (
-				934D02D324628BBB005B2098 /* Person.h */,
-				934D02D424628BBB005B2098 /* Person.m */,
-			);
-			path = etc;
 			sourceTree = "<group>";
 		};
 		93320D532475C3E9005E15E8 /* shared */ = {
@@ -137,19 +134,14 @@
 				9303A21D246E2BF80053EE06 /* iHome.entitlements */,
 				934D02BA24627F70005B2098 /* iHome.xcdatamodeld */,
 				934D02BD24627F77005B2098 /* Assets.xcassets */,
-				93320D522475C3B7005E15E8 /* etc */,
 				934D02BF24627F77005B2098 /* LaunchScreen.storyboard */,
 				934D02B724627F70005B2098 /* Main.storyboard */,
 				93320D532475C3E9005E15E8 /* shared */,
 				93A1768C247A2A9B0010BD40 /* RootView */,
-				936AA95F2474627900F97E7F /* RoomViewController.h */,
-				9351FF1B2475C01C0089FD42 /* AutomationViewController.h */,
-				933EFD8F2470D4F10090134C /* HomeSettingsViewController.h */,
-				937F94F7246FB15900E9AD5F /* AccessoryViewController.h */,
-				936AA9602474627900F97E7F /* RoomViewController.m */,
-				9351FF1C2475C01C0089FD42 /* AutomationViewController.m */,
-				933EFD902470D4F10090134C /* HomeSettingsViewController.m */,
-				937F94F8246FB15900E9AD5F /* AccessoryViewController.m */,
+				93A17690247A3DED0010BD40 /* RoomView */,
+				93A17691247A3DFA0010BD40 /* AutomationView */,
+				93A17692247A3E060010BD40 /* HomeSettingsView */,
+				93A17693247A3E0E0010BD40 /* AccessoryView */,
 			);
 			path = iHome;
 			sourceTree = "<group>";
@@ -159,10 +151,52 @@
 			children = (
 				934D02D024628B3C005B2098 /* RootViewController.h */,
 				934D02D124628B3C005B2098 /* RootViewController.m */,
-				93A1768D247A2BBA0010BD40 /* RootViewController+HomeManager.h */,
-				93A1768E247A2BBA0010BD40 /* RootViewController+HomeManager.m */,
+				93A17697247A5C930010BD40 /* RootViewController+CollectionView.h */,
+				93A17698247A5C930010BD40 /* RootViewController+CollectionView.m */,
+				93A1768D247A2BBA0010BD40 /* RootViewController+HomeManagerDelegate.h */,
+				93A1768E247A2BBA0010BD40 /* RootViewController+HomeManagerDelegate.m */,
+				93A17694247A45BC0010BD40 /* RootViewController+HomeDelegate.h */,
+				93A17695247A45BC0010BD40 /* RootViewController+HomeDelegate.m */,
 			);
 			path = RootView;
+			sourceTree = "<group>";
+		};
+		93A17690247A3DED0010BD40 /* RoomView */ = {
+			isa = PBXGroup;
+			children = (
+				936AA95F2474627900F97E7F /* RoomViewController.h */,
+				936AA9602474627900F97E7F /* RoomViewController.m */,
+				93A1769A247B5AE80010BD40 /* RoomViewController+CollectionView.h */,
+				93A1769B247B5AE80010BD40 /* RoomViewController+CollectionView.m */,
+			);
+			path = RoomView;
+			sourceTree = "<group>";
+		};
+		93A17691247A3DFA0010BD40 /* AutomationView */ = {
+			isa = PBXGroup;
+			children = (
+				9351FF1B2475C01C0089FD42 /* AutomationViewController.h */,
+				9351FF1C2475C01C0089FD42 /* AutomationViewController.m */,
+			);
+			path = AutomationView;
+			sourceTree = "<group>";
+		};
+		93A17692247A3E060010BD40 /* HomeSettingsView */ = {
+			isa = PBXGroup;
+			children = (
+				933EFD8F2470D4F10090134C /* HomeSettingsViewController.h */,
+				933EFD902470D4F10090134C /* HomeSettingsViewController.m */,
+			);
+			path = HomeSettingsView;
+			sourceTree = "<group>";
+		};
+		93A17693247A3E0E0010BD40 /* AccessoryView */ = {
+			isa = PBXGroup;
+			children = (
+				937F94F7246FB15900E9AD5F /* AccessoryViewController.h */,
+				937F94F8246FB15900E9AD5F /* AccessoryViewController.m */,
+			);
+			path = AccessoryView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -236,19 +270,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				93A17696247A45BC0010BD40 /* RootViewController+HomeDelegate.m in Sources */,
 				933EFD912470D4F10090134C /* HomeSettingsViewController.m in Sources */,
 				936AA9612474627900F97E7F /* RoomViewController.m in Sources */,
-				934D02D524628BBB005B2098 /* Person.m in Sources */,
 				934D02C424627F77005B2098 /* main.m in Sources */,
 				9351FF1D2475C01C0089FD42 /* AutomationViewController.m in Sources */,
 				934D02BC24627F70005B2098 /* iHome.xcdatamodeld in Sources */,
+				93A17699247A5C930010BD40 /* RootViewController+CollectionView.m in Sources */,
 				934D02B024627F70005B2098 /* AppDelegate.m in Sources */,
 				934D02B324627F70005B2098 /* SceneDelegate.m in Sources */,
 				93A176862479BA2E0010BD40 /* HomeStore+HomeDelegate.m in Sources */,
 				937F94F9246FB15900E9AD5F /* AccessoryViewController.m in Sources */,
 				934D02D224628B3C005B2098 /* RootViewController.m in Sources */,
+				93A1769C247B5AE80010BD40 /* RoomViewController+CollectionView.m in Sources */,
 				93A1768B2479D2F10010BD40 /* HomeStore+AccessoryDelegate.m in Sources */,
-				93A1768F247A2BBA0010BD40 /* RootViewController+HomeManager.m in Sources */,
+				93A1768F247A2BBA0010BD40 /* RootViewController+HomeManagerDelegate.m in Sources */,
 				93E9A94F2471D58B00A47A5B /* HomeStore.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

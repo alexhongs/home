@@ -8,10 +8,13 @@
 
 #import <UIKit/UIKit.h>
 #import <HomeKit/HomeKit.h>
-NS_ASSUME_NONNULL_BEGIN
 
 @interface RoomViewController : UIViewController<UICollectionViewDelegate, UICollectionViewDataSource>
 
-@end
+@property (nonatomic, strong) HMHomeManager *homeManager;
+@property (nonatomic, strong) HMHome *home;
 
-NS_ASSUME_NONNULL_END
+@property (strong, nonatomic) IBOutlet UICollectionView *collectionView;
+@property (strong, nonatomic) IBOutlet UILabel *titleLabel;
+
+@end

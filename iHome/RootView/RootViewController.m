@@ -14,7 +14,6 @@
 
 @interface RootViewController ()
 
-@property (strong, nonatomic) IBOutlet UICollectionView *collectionView;
 @property (strong, nonatomic) IBOutlet UILabel *titleLabel;
 
 @end
@@ -33,33 +32,38 @@
     _collectionView.dataSource = self;
 }
 
--(void)accessoryClicked: (HMAccessory *)accessory{
-    [self performSegueWithIdentifier:@"toAccessory" sender:accessory];
-}
-
 - (IBAction)menuClicked:(UIButton *)sender {
+    // Lazily update local homelist in case new home is added
+    HomeStore *hs = [HomeStore shared];
+    self.homes = hs.homeManager.homes;
+    
     UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Your Homes" message:@"Choose your home" preferredStyle:UIAlertControllerStyleActionSheet];
     
+    // Home List
     for (HMHome *home in self.homes) {
         UIAlertAction *homeAction = [UIAlertAction actionWithTitle:home.name style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-            HomeStore *shared = [HomeStore shared];
-            [shared.homeManager updatePrimaryHome:home completionHandler:^(NSError * _Nullable error) {
-                [self updateView];
-            }];
+            [self switchPrimaryHome:home];
         }]; [alert addAction:homeAction];
     }
     
+    // Add Home
     UIAlertAction *addHomeAction = [UIAlertAction actionWithTitle:@"Add Home" style:UIAlertActionStyleDestructive handler:^(UIAlertAction * _Nonnull action) {
         [self showAddHome];
     }]; [alert addAction:addHomeAction];
     
+    // Home Settings (this will have add, remove home later)
     UIAlertAction *settingsAction = [UIAlertAction actionWithTitle:@"Home Settings" style:UIAlertActionStyleDestructive handler:^(UIAlertAction * _Nonnull action) {
         [self showHomeSettings];
     }]; [alert addAction:settingsAction];
     
+    // Cancel
     UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {}]; [alert addAction:cancelAction];
 
     [self presentViewController:alert animated:true completion:nil];
+}
+
+-(void)accessoryClicked: (HMAccessory *)accessory{
+    [self performSegueWithIdentifier:@"toAccessory" sender:accessory];
 }
 
 - (void)showHomeSettings {
@@ -94,9 +98,18 @@
 }
 
 - (void)updateView {
-    self.titleLabel.text = self.homeManager.primaryHome.name;
-    self.homes = self.homeManager.homes;
+    NSLog(@"RootVC: updateView");
+    HomeStore *hs = [HomeStore shared];
+    self.homes = hs.homeManager.homes;
+    self.titleLabel.text = hs.homeManager.primaryHome.name;
     [self.collectionView reloadData];
+}
+
+- (void)switchPrimaryHome: (HMHome *)home {
+    HomeStore *hs = [HomeStore shared];
+    [hs.homeManager updatePrimaryHome:home completionHandler:^(NSError * _Nullable error) {
+         [self updateView];
+    }];
 }
 
 /**
@@ -113,21 +126,13 @@
                     NSLog(@"Error adding Room : %@", error);
                 }
             }];
-            
-            
             // Establish the strong self reference
             __strong typeof(self) strongSelf = weakSelf;
 
-            if (strongSelf) {
-               [strongSelf.homeManager updatePrimaryHome:home completionHandler:^(NSError * _Nullable error) {
-                    [strongSelf updateView];
-                }];
-            } else {
-                // self doesn't exist
-            }
-            
+            if (strongSelf) { [strongSelf switchPrimaryHome:home]; }
         } else {
             NSLog(@"Error adding Home. Check if the %@ already exists", name);
+            // TODO: We could make user retype, or another option is to add Room to existing home
         }
     }];
 }
@@ -166,72 +171,6 @@
         AccessoryViewController *vc = [segue destinationViewController];
         vc.accessory = sender;
     }
-}
-
-#pragma mark - HMHomeDelegate
-- (void)home:(HMHome *)home didAddAccessory:(HMAccessory *)accessory {
-//    if([home isEqual:self.home]) {
-//        return;
-//    }
-    
-}
-
-- (void)home:(HMHome *)home didRemoveAccessory:(HMAccessory *)accessory {
-    
-}
-
-#pragma mark - UICollectionViewDataSource
-- (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
-    return 1;
-}
-- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    return self.homeManager.primaryHome.accessories.count;
-}
-
-/**
- Get all accessories of primary home into cells
- */
-- (__kindof UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
-
-    UICollectionViewCell *item = [self.collectionView dequeueReusableCellWithReuseIdentifier:@"collectionCell" forIndexPath:indexPath];
-    UILabel *label = [item viewWithTag:100];
-    label.text = self.homeManager.primaryHome.accessories[indexPath.row].name;
-    item.backgroundColor = UIColor.whiteColor;
-    return item;
-}
-
-#pragma mark - UICollectionViewDelegate
-
-- (void) collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
-    UICollectionViewCell *cell = [collectionView cellForItemAtIndexPath:indexPath];
-    UILabel *cellLabel = [cell viewWithTag:100];
-    
-    HMAccessory *accessory = self.homeManager.primaryHome.accessories[indexPath.row];
-    NSLog(@"Selected Item at %@ : %@", cellLabel.text, accessory.name);
-    //TODO: Make this clickable to toggle actions. (need Developer License)
-}
-
-/**
- Triggered when cell item is pressed
- */
-- (void)collectionView:(UICollectionView *)collectionView didHighlightItemAtIndexPath:(NSIndexPath *)indexPath {
-    UICollectionViewCell *cell = [collectionView cellForItemAtIndexPath:indexPath];
-    cell.backgroundColor = UIColor.lightGrayColor;
-    HMAccessory *accessory = self.homeManager.primaryHome.accessories[indexPath.row];
-    // TODO: Figure out activate accessoryVC with some delay. click for 2 sec events
-    //    [self accessoryClicked: accessory];
-//    for (HMCharacteristic *ch in accessory.services.lastObject.characteristics){
-//        NSLog(@"c %@", ch.localizedDescription);
-//    }
-//
-}
-
-/**
-Triggered when cell item is released
-*/
-- (void)collectionView:(UICollectionView *)collectionView didUnhighlightItemAtIndexPath:(NSIndexPath *)indexPath {
-    UICollectionViewCell *cell = [collectionView cellForItemAtIndexPath:indexPath];
-    cell.backgroundColor = UIColor.whiteColor;
 }
 
 @end

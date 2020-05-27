@@ -12,14 +12,6 @@
 #import "HomeStore.h"
 
 @interface RoomViewController ()
-@property (strong, nonatomic) HomeStore *sharedManager;
-
-@property (nonatomic, strong) HMHomeManager *homeManager;
-@property (nonatomic, strong) HMHome *home;
-
-@property (strong, nonatomic) IBOutlet UICollectionView *collectionView;
-@property (strong, nonatomic) IBOutlet UILabel *titleLabel;
-
 @end
 
 @implementation RoomViewController
@@ -29,19 +21,20 @@
     
     NSLog(@"RootViewContoller - View Did Load");
     // Do any additional setup after loading the view.
-    _sharedManager = [HomeStore shared];
+    HomeStore *hs = [HomeStore shared];
     
-    _homeManager = _sharedManager.homeManager;
+    _homeManager = hs.homeManager;
     _home = _homeManager.primaryHome;
     
     _collectionView.delegate = self;
     _collectionView.dataSource = self;
 }
 
-- (void)viewDidAppear:(BOOL)animated {
-    _home = _homeManager.primaryHome;
-    [self updateView];
-}
+//- (void)viewDidAppear:(BOOL)animated {
+//    HomeStore *hs = [HomeStore shared];
+//    _home = hs.homeManager.primaryHome;
+//    [self updateView];
+//}
 
 - (IBAction)menuClicked:(UIButton *)sender {
     UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Your Rooms" message:@"Choose your room" preferredStyle:UIAlertControllerStyleActionSheet];
@@ -111,55 +104,5 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     NSLog(@"prepare segue: ");
 }
-
-#pragma mark - UICollectionViewDataSource
-- (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
-    return 1;
-}
-- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    return self.homeManager.primaryHome.rooms[0].accessories.count;
-}
-
-/**
- Get all accessories of primary home into cells
- */
-- (__kindof UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
-
-    UICollectionViewCell *item = [self.collectionView dequeueReusableCellWithReuseIdentifier:@"collectionCell" forIndexPath:indexPath];
-    UILabel *label = [item viewWithTag:100];
-    label.text = self.homeManager.primaryHome.rooms[0].accessories[indexPath.row].name;
-    item.backgroundColor = UIColor.whiteColor;
-    return item;
-}
-
-#pragma mark - UICollectionViewDelegate
-
-/**
- Triggered when cell item is clicked
- */
-- (void) collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
-    UICollectionViewCell *cell = [collectionView cellForItemAtIndexPath:indexPath];
-    UILabel *cellLabel = [cell viewWithTag:100];
-    
-    HMAccessory *accessory = self.homeManager.primaryHome.rooms[0].accessories[indexPath.row];
-    NSLog(@"Selected Item at %@ : %@", cellLabel.text, accessory.name);
-}
-
-/**
- Triggered when cell item is pressed
- */
-- (void)collectionView:(UICollectionView *)collectionView didHighlightItemAtIndexPath:(NSIndexPath *)indexPath {
-    UICollectionViewCell *cell = [collectionView cellForItemAtIndexPath:indexPath];
-    cell.backgroundColor = UIColor.lightGrayColor;
-}
-
-/**
-Triggered when cell item is released
-*/
-- (void)collectionView:(UICollectionView *)collectionView didUnhighlightItemAtIndexPath:(NSIndexPath *)indexPath {
-    UICollectionViewCell *cell = [collectionView cellForItemAtIndexPath:indexPath];
-    cell.backgroundColor = UIColor.whiteColor;
-}
-
 @end
 

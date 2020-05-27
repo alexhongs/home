@@ -11,18 +11,18 @@
 @implementation HomeStore (HomeStoreAccessoryDelegate)
 
 - (void) addAccessoryDelegate: (NSObject *) delegate {
+    NSLog(@"HS: addAccessoryDelegate: %@", delegate.description);
     [self.accessoryDelegates addObject:delegate];
-    NSLog(@"addAccessoryDelegate: %@", delegate.description);
 }
 
 - (void) removeAccessoryDelegate: (NSObject *) delegate {
+    NSLog(@"HS: removeAccessoryDelegate: %@", delegate.description);
     [self.accessoryDelegates removeObject:delegate];
-    NSLog(@"removeAccessoryDelegate: %@", delegate.description);
 }
 
 - (void) removeAllAccessoryDelegates {
+    NSLog(@"HS: removeAllAccessoryDelegates");
     [self.accessoryDelegates removeAllObjects];
-    NSLog(@"removeAllAccessoryDelegates");
 }
 
 

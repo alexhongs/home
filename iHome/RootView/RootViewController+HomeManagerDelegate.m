@@ -6,18 +6,17 @@
 //  Copyright © 2020 alexhongs. All rights reserved.
 //
 #import "HomeStore.h"
-#import "RootViewController+HomeManager.h"
+#import "RootViewController+HomeManagerDelegate.h"
 
 @implementation RootViewController (RootViewControllerHomeManager)
 
 #pragma mark - HMHomeManagerDelegate
 
 - (void)homeManagerDidUpdateHomes:(HMHomeManager *)manager {
-    NSLog(@"Change occured at homes!");
+    NSLog(@"RootVC: homeManagerDidUpdateHomes (%lu)", manager.homes.count);
     HomeStore *shared = [HomeStore shared];
     self.homes = shared.homeManager.homes;
     [self updateView];
-    [self printHomes];
 }
 
 

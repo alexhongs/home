@@ -14,6 +14,7 @@ NS_ASSUME_NONNULL_BEGIN
 
     @property (nonatomic, strong) NSArray<HMHome *> *homes;
     @property (nonatomic, strong) HMHomeManager *homeManager;
+    @property (nonatomic, strong) IBOutlet UICollectionView *collectionView;
 
 - (void) updateView;
 - (void) printHomes;

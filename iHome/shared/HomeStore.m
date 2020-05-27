@@ -35,7 +35,10 @@
         homeManager = [[HMHomeManager alloc] init];
         homeDelegates = [[NSMutableSet<NSObject *> alloc] init];
         accessoryDelegates = [[NSMutableSet<NSObject *> alloc] init];
+        
+        //Assigning home delegates is not useful here, because homes update will be fetched by iCloud after homeManager's delegate is set: check RootViewController
     }
     return self;
 }
+
 @end
