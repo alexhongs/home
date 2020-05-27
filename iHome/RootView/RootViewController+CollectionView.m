@@ -7,6 +7,7 @@
 //
 
 #import "RootViewController+CollectionView.h"
+#import "HMAccessory+Control.h"
 
 @implementation RootViewController (RootViewControllerCollectionView)
 
@@ -40,6 +41,36 @@
     HMAccessory *accessory = self.homeManager.primaryHome.accessories[indexPath.row];
     NSLog(@"Selected Item at %@ : %@", cellLabel.text, accessory.name);
     //TODO: Make this clickable to toggle actions. (need Developer License)
+    
+    HMService *s = accessory.services.lastObject;
+    NSLog(@"Desc: %@", s.name);
+    for (HMCharacteristic *c in s.characteristics) {
+        NSLog(@"- Chr: %@", c.localizedDescription);
+        if([c.localizedDescription isEqualToString:@"Power State"]) {
+            NSLog(@"Power State: %@", c.value);
+//            [c writeValue:c.value completionHandler:^(NSError * _Nullable error) {
+//                NSLog(@"Error: %@", error);
+//            }];
+        }
+    }
+
+    HMCharacteristic *power = [accessory find:HMServiceTypeLightbulb :HMCharacteristicMetadataFormatBool];
+    
+    BOOL toggleState = FALSE;
+    NSString *powerValue = [[NSString alloc] initWithFormat:@"%@", power.value];
+    if([powerValue isEqualToString:@"0"]) {
+        toggleState = TRUE;
+    }
+    
+    NSNumber *toggle = [[NSNumber alloc] initWithBool:toggleState];
+    
+    NSLog(@"Power: %@ %@ %@ new: %@", power.characteristicType, power.value, toggleState ? @"YES": @"NO", toggle);
+    [power writeValue:toggle completionHandler:^(NSError * _Nullable error) {
+        if(error) {
+            NSLog(@"Power Toggle Error: %@", error.description);
+        }
+        [self.collectionView reloadData];
+    }];
 }
 
 /**
