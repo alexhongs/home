@@ -7,7 +7,6 @@
 //
 
 #import "RootViewController+CollectionView.h"
-#import "HMAccessory+Control.h"
 #import "AccessoryCell.h"
 
 @implementation RootViewController (RootViewControllerCollectionView)
@@ -35,7 +34,6 @@
 - (void) collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     AccessoryCell *cell = [collectionView cellForItemAtIndexPath:indexPath];
     [cell tap];
-    [self.collectionView reloadData];
 }
 
 /**

@@ -18,6 +18,7 @@
 
 - (id) init {
     self = [super init];
+    // TODO: init is not getting called. why is this?
 //    if (self) {
 //        self.backgroundColor = UIColor.redColor;
 //        self.title.backgroundColor = UIColor.redColor;
@@ -27,20 +28,8 @@
 }
 
 - (void) tap {
-     
-    HMService *s = self.accessory.services.lastObject;
-    NSLog(@"Desc: %@", s.name);
-    for (HMCharacteristic *c in s.characteristics) {
-        NSLog(@"- Chr: %@", c.localizedDescription);
-        if([c.localizedDescription isEqualToString:@"Power State"]) {
-         NSLog(@"Power State: %@", c.value);
-        }
-    }
-    
     HMCharacteristic *power = [self getPowerState];
 
-    
-    
     BOOL toggleState = FALSE;
     NSString *powerValue = [[NSString alloc] initWithFormat:@"%@", power.value];
     if([powerValue isEqualToString:@"0"]) {
@@ -55,7 +44,8 @@
         if(error) {
             NSLog(@"Power Toggle Error: %@", error.description);
         }
-    //         [self.collectionView reloadData];
+        //TODO: reload view: this will be used for on/off color state on view
+        [(UICollectionView*) self.superview reloadData];
     }];
 }
 
