@@ -8,6 +8,7 @@
 
 #import "RootViewController+CollectionView.h"
 #import "HMAccessory+Control.h"
+#import "AccessoryCell.h"
 
 @implementation RootViewController (RootViewControllerCollectionView)
 
@@ -24,11 +25,8 @@
  Get all accessories of primary home into cells
  */
 - (__kindof UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
-
-    UICollectionViewCell *item = [self.collectionView dequeueReusableCellWithReuseIdentifier:@"collectionCell" forIndexPath:indexPath];
-    UILabel *label = [item viewWithTag:100];
-    label.text = self.homeManager.primaryHome.accessories[indexPath.row].name;
-    item.backgroundColor = UIColor.whiteColor;
+    AccessoryCell *item = [self.collectionView dequeueReusableCellWithReuseIdentifier:@"accessoryCell" forIndexPath:indexPath];
+    [item setAccessory:self.homeManager.primaryHome.accessories[indexPath.row]];
     return item;
 }
 
