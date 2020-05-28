@@ -19,6 +19,9 @@
 		934D02D224628B3C005B2098 /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 934D02D124628B3C005B2098 /* RootViewController.m */; };
 		9351FF1D2475C01C0089FD42 /* AutomationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9351FF1C2475C01C0089FD42 /* AutomationViewController.m */; };
 		936AA9612474627900F97E7F /* RoomViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 936AA9602474627900F97E7F /* RoomViewController.m */; };
+		937A950F247E14FC003B0859 /* HMAccessory+Control.m in Sources */ = {isa = PBXBuildFile; fileRef = 937A950E247E14FC003B0859 /* HMAccessory+Control.m */; };
+		937A9512247E1B7D003B0859 /* NSArray+Utility.m in Sources */ = {isa = PBXBuildFile; fileRef = 937A9511247E1B7D003B0859 /* NSArray+Utility.m */; };
+		937A9539247F8373003B0859 /* AccessoryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 937A9538247F8373003B0859 /* AccessoryCell.m */; };
 		937F94F9246FB15900E9AD5F /* AccessoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 937F94F8246FB15900E9AD5F /* AccessoryViewController.m */; };
 		93A176862479BA2E0010BD40 /* HomeStore+HomeDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 93A176852479BA2E0010BD40 /* HomeStore+HomeDelegate.m */; };
 		93A176882479BACE0010BD40 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 93A176872479BACE0010BD40 /* README.md */; };
@@ -52,6 +55,12 @@
 		9351FF1C2475C01C0089FD42 /* AutomationViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AutomationViewController.m; sourceTree = "<group>"; };
 		936AA95F2474627900F97E7F /* RoomViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RoomViewController.h; sourceTree = "<group>"; };
 		936AA9602474627900F97E7F /* RoomViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RoomViewController.m; sourceTree = "<group>"; };
+		937A950D247E14FC003B0859 /* HMAccessory+Control.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "HMAccessory+Control.h"; sourceTree = "<group>"; };
+		937A950E247E14FC003B0859 /* HMAccessory+Control.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "HMAccessory+Control.m"; sourceTree = "<group>"; };
+		937A9510247E1B7D003B0859 /* NSArray+Utility.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSArray+Utility.h"; sourceTree = "<group>"; };
+		937A9511247E1B7D003B0859 /* NSArray+Utility.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSArray+Utility.m"; sourceTree = "<group>"; };
+		937A9537247F8373003B0859 /* AccessoryCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AccessoryCell.h; sourceTree = "<group>"; };
+		937A9538247F8373003B0859 /* AccessoryCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AccessoryCell.m; sourceTree = "<group>"; };
 		937F94F7246FB15900E9AD5F /* AccessoryViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AccessoryViewController.h; sourceTree = "<group>"; };
 		937F94F8246FB15900E9AD5F /* AccessoryViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AccessoryViewController.m; sourceTree = "<group>"; };
 		93A176842479BA2E0010BD40 /* HomeStore+HomeDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "HomeStore+HomeDelegate.h"; sourceTree = "<group>"; };
@@ -91,7 +100,7 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		93320D532475C3E9005E15E8 /* shared */ = {
+		93320D532475C3E9005E15E8 /* HomeStore */ = {
 			isa = PBXGroup;
 			children = (
 				93E9A94D2471D58B00A47A5B /* HomeStore.h */,
@@ -101,7 +110,7 @@
 				93A176892479D2F10010BD40 /* HomeStore+AccessoryDelegate.h */,
 				93A1768A2479D2F10010BD40 /* HomeStore+AccessoryDelegate.m */,
 			);
-			path = shared;
+			path = HomeStore;
 			sourceTree = "<group>";
 		};
 		934D02A224627F70005B2098 = {
@@ -136,14 +145,36 @@
 				934D02BD24627F77005B2098 /* Assets.xcassets */,
 				934D02BF24627F77005B2098 /* LaunchScreen.storyboard */,
 				934D02B724627F70005B2098 /* Main.storyboard */,
-				93320D532475C3E9005E15E8 /* shared */,
+				93320D532475C3E9005E15E8 /* HomeStore */,
 				93A1768C247A2A9B0010BD40 /* RootView */,
 				93A17690247A3DED0010BD40 /* RoomView */,
 				93A17691247A3DFA0010BD40 /* AutomationView */,
 				93A17692247A3E060010BD40 /* HomeSettingsView */,
 				93A17693247A3E0E0010BD40 /* AccessoryView */,
+				937A953B247FA97B003B0859 /* Accessory */,
+				937A953A247FA970003B0859 /* Utility */,
 			);
 			path = iHome;
+			sourceTree = "<group>";
+		};
+		937A953A247FA970003B0859 /* Utility */ = {
+			isa = PBXGroup;
+			children = (
+				937A9510247E1B7D003B0859 /* NSArray+Utility.h */,
+				937A9511247E1B7D003B0859 /* NSArray+Utility.m */,
+			);
+			path = Utility;
+			sourceTree = "<group>";
+		};
+		937A953B247FA97B003B0859 /* Accessory */ = {
+			isa = PBXGroup;
+			children = (
+				937A950D247E14FC003B0859 /* HMAccessory+Control.h */,
+				937A950E247E14FC003B0859 /* HMAccessory+Control.m */,
+				937A9537247F8373003B0859 /* AccessoryCell.h */,
+				937A9538247F8373003B0859 /* AccessoryCell.m */,
+			);
+			path = Accessory;
 			sourceTree = "<group>";
 		};
 		93A1768C247A2A9B0010BD40 /* RootView */ = {
@@ -270,6 +301,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				937A9539247F8373003B0859 /* AccessoryCell.m in Sources */,
 				93A17696247A45BC0010BD40 /* RootViewController+HomeDelegate.m in Sources */,
 				933EFD912470D4F10090134C /* HomeSettingsViewController.m in Sources */,
 				936AA9612474627900F97E7F /* RoomViewController.m in Sources */,
@@ -283,7 +315,9 @@
 				937F94F9246FB15900E9AD5F /* AccessoryViewController.m in Sources */,
 				934D02D224628B3C005B2098 /* RootViewController.m in Sources */,
 				93A1769C247B5AE80010BD40 /* RoomViewController+CollectionView.m in Sources */,
+				937A950F247E14FC003B0859 /* HMAccessory+Control.m in Sources */,
 				93A1768B2479D2F10010BD40 /* HomeStore+AccessoryDelegate.m in Sources */,
+				937A9512247E1B7D003B0859 /* NSArray+Utility.m in Sources */,
 				93A1768F247A2BBA0010BD40 /* RootViewController+HomeManagerDelegate.m in Sources */,
 				93E9A94F2471D58B00A47A5B /* HomeStore.m in Sources */,
 			);
