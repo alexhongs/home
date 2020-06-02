@@ -46,6 +46,7 @@
 }
 
 - (IBAction)seeActions:(UIButton *)sender {
+    [self findActionSetWithName:@"actionSet3"];
     [self printActionSets];
     [self printTriggeredActionSets];
 }
@@ -53,28 +54,46 @@
 
 - (IBAction)addAction:(UIButton *)sender {
     
-    [_home addActionSetWithName:@"actionSet1" completionHandler:^(HMActionSet * _Nullable actionSet, NSError * _Nullable error) {
+    [_sharedManager.homeManager.primaryHome addActionSetWithName:@"actionSet3" completionHandler:^(HMActionSet * _Nullable actionSet, NSError * _Nullable error) {
+        if(error) {
+            NSLog(@"Add ActionSet %@", error);
+            return;
+        }
         HMAction *action = [[HMAction alloc] init];
-//        [HMActionSetTypeWakeUp i]
-        
+        //        [HMActionSetTypeWakeUp i]
         [actionSet addAction:HMActionSetTypeWakeUp completionHandler:^(NSError * _Nullable error) {
-            
+            if(error) {
+                NSLog(@"Add Action %@", error);
+                return;
+            }
         }];
         self.actionSet = actionSet;
-        
+        NSLog(@"Added Action Set  %@ : %@", _actionSet.name, _actionSet.description);
     }];
-    
-    NSLog(@"Added Action Set  %@ : %@", _actionSet.name, _actionSet.description);
-    
 }
 
 - (IBAction)removeAction:(id)sender {
-    [_home removeActionSet:_actionSet completionHandler:^(NSError * _Nullable error) {
-        NSLog(@"Removed Action Set %@", error);
+    HMActionSet* actionSet = [self findActionSetWithName:@"actionSet2"];
+    [_home removeActionSet:actionSet completionHandler:^(NSError * _Nullable error) {
+        if(error) {
+            NSLog(@"Remove Action Set %@", error);
+            return;
+        }
+        NSLog(@"Removed Action Set");
     }];
 }
 
-
+- (HMActionSet *) findActionSetWithName:(NSString*) name {
+    for (HMActionSet *actionSet in _home.actionSets)
+    {
+        NSLog(@"Finding ActionSet: |%@|, finding: |%@|", actionSet.name, name);
+        if([actionSet.name isEqualToString:name]) {
+            NSLog(@"Found! %@", actionSet.name);
+            return actionSet;
+        }
+    }
+    return nil;
+}
 
 
 /*
