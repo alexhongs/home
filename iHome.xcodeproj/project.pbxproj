@@ -30,8 +30,19 @@
 		93A17696247A45BC0010BD40 /* RootViewController+HomeDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 93A17695247A45BC0010BD40 /* RootViewController+HomeDelegate.m */; };
 		93A17699247A5C930010BD40 /* RootViewController+CollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 93A17698247A5C930010BD40 /* RootViewController+CollectionView.m */; };
 		93A1769C247B5AE80010BD40 /* RoomViewController+CollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 93A1769B247B5AE80010BD40 /* RoomViewController+CollectionView.m */; };
+		93DAC4932485FF0400AB6321 /* iHomeTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 93DAC4922485FF0400AB6321 /* iHomeTests.m */; };
 		93E9A94F2471D58B00A47A5B /* HomeStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 93E9A94E2471D58B00A47A5B /* HomeStore.m */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		93DAC4952485FF0400AB6321 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 934D02A324627F70005B2098 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 934D02AA24627F70005B2098;
+			remoteInfo = iHome;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		9303A21D246E2BF80053EE06 /* iHome.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = iHome.entitlements; sourceTree = "<group>"; };
@@ -76,6 +87,9 @@
 		93A17698247A5C930010BD40 /* RootViewController+CollectionView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "RootViewController+CollectionView.m"; sourceTree = "<group>"; };
 		93A1769A247B5AE80010BD40 /* RoomViewController+CollectionView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "RoomViewController+CollectionView.h"; sourceTree = "<group>"; };
 		93A1769B247B5AE80010BD40 /* RoomViewController+CollectionView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "RoomViewController+CollectionView.m"; sourceTree = "<group>"; };
+		93DAC4902485FF0400AB6321 /* iHomeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = iHomeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		93DAC4922485FF0400AB6321 /* iHomeTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = iHomeTests.m; path = iHomeTests/iHomeTests.m; sourceTree = SOURCE_ROOT; };
+		93DAC4942485FF0400AB6321 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		93E9A94D2471D58B00A47A5B /* HomeStore.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomeStore.h; sourceTree = "<group>"; };
 		93E9A94E2471D58B00A47A5B /* HomeStore.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomeStore.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -86,6 +100,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				9303A220246E2C500053EE06 /* HomeKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		93DAC48D2485FF0400AB6321 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -118,6 +139,7 @@
 			children = (
 				93A176872479BACE0010BD40 /* README.md */,
 				934D02AD24627F70005B2098 /* iHome */,
+				93DAC4912485FF0400AB6321 /* iHomeTests */,
 				934D02AC24627F70005B2098 /* Products */,
 				9303A21E246E2C500053EE06 /* Frameworks */,
 			);
@@ -127,6 +149,7 @@
 			isa = PBXGroup;
 			children = (
 				934D02AB24627F70005B2098 /* iHome.app */,
+				93DAC4902485FF0400AB6321 /* iHomeTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -230,6 +253,15 @@
 			path = AccessoryView;
 			sourceTree = "<group>";
 		};
+		93DAC4912485FF0400AB6321 /* iHomeTests */ = {
+			isa = PBXGroup;
+			children = (
+				93DAC4922485FF0400AB6321 /* iHomeTests.m */,
+				93DAC4942485FF0400AB6321 /* Info.plist */,
+			);
+			path = iHomeTests;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -250,6 +282,24 @@
 			productReference = 934D02AB24627F70005B2098 /* iHome.app */;
 			productType = "com.apple.product-type.application";
 		};
+		93DAC48F2485FF0400AB6321 /* iHomeTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 93DAC4992485FF0400AB6321 /* Build configuration list for PBXNativeTarget "iHomeTests" */;
+			buildPhases = (
+				93DAC48C2485FF0400AB6321 /* Sources */,
+				93DAC48D2485FF0400AB6321 /* Frameworks */,
+				93DAC48E2485FF0400AB6321 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				93DAC4962485FF0400AB6321 /* PBXTargetDependency */,
+			);
+			name = iHomeTests;
+			productName = iHomeTests;
+			productReference = 93DAC4902485FF0400AB6321 /* iHomeTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -261,6 +311,10 @@
 				TargetAttributes = {
 					934D02AA24627F70005B2098 = {
 						CreatedOnToolsVersion = 11.3.1;
+					};
+					93DAC48F2485FF0400AB6321 = {
+						CreatedOnToolsVersion = 11.5;
+						TestTargetID = 934D02AA24627F70005B2098;
 					};
 				};
 			};
@@ -278,6 +332,7 @@
 			projectRoot = "";
 			targets = (
 				934D02AA24627F70005B2098 /* iHome */,
+				93DAC48F2485FF0400AB6321 /* iHomeTests */,
 			);
 		};
 /* End PBXProject section */
@@ -291,6 +346,13 @@
 				934D02BE24627F77005B2098 /* Assets.xcassets in Resources */,
 				93A176882479BACE0010BD40 /* README.md in Resources */,
 				934D02B924627F70005B2098 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		93DAC48E2485FF0400AB6321 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -323,7 +385,23 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		93DAC48C2485FF0400AB6321 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				93DAC4932485FF0400AB6321 /* iHomeTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		93DAC4962485FF0400AB6321 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 934D02AA24627F70005B2098 /* iHome */;
+			targetProxy = 93DAC4952485FF0400AB6321 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		934D02B724627F70005B2098 /* Main.storyboard */ = {
@@ -491,6 +569,48 @@
 			};
 			name = Release;
 		};
+		93DAC4972485FF0400AB6321 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 5UY85AYC97;
+				INFOPLIST_FILE = iHomeTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.appfish.iHomeTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/iHome.app/iHome";
+			};
+			name = Debug;
+		};
+		93DAC4982485FF0400AB6321 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 5UY85AYC97;
+				INFOPLIST_FILE = iHomeTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.appfish.iHomeTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/iHome.app/iHome";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -508,6 +628,15 @@
 			buildConfigurations = (
 				934D02C824627F77005B2098 /* Debug */,
 				934D02C924627F77005B2098 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		93DAC4992485FF0400AB6321 /* Build configuration list for PBXNativeTarget "iHomeTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				93DAC4972485FF0400AB6321 /* Debug */,
+				93DAC4982485FF0400AB6321 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
