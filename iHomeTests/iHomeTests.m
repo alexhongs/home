@@ -7,16 +7,19 @@
 //
 #import <Foundation/Foundation.h>
 #import <XCTest/XCTest.h>
-#import "RoomViewController.h"
+#import "HomeStore.h"
 
+// TODO: Current problem is that this test only builds when target is on simulated devices.
 @interface iHomeTests : XCTestCase
 
+@property (strong, nonatomic) HomeStore *homeStore;
 @end
 
 @implementation iHomeTests
 
 - (void)setUp {
     // Put setup code here. This method is called before the invocation of each test method in the class.
+    _homeStore = HomeStore.shared;
 }
 
 - (void)tearDown {
@@ -28,11 +31,14 @@
     // Use XCTAssert and related functions to verify your tests produce the correct results
     
     XCTAssert(2 + 1 == 3);
-    NSString *s = @"some str ing";
+    NSString *s = @"some string";
     XCTAssertNotNil(s);
 }
 
-//- (void)testRoomViewController
+- (void)testHomeStore {
+    XCTAssertNotNil(_homeStore);
+    XCTAssertEqual(_homeStore, HomeStore.shared);
+}
 
 - (void)testPerformanceExample {
     // This is an example of a performance test case.

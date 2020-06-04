@@ -113,6 +113,21 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8403AF452488B1FF000C8332 /* AppDelegate */ = {
+			isa = PBXGroup;
+			children = (
+				934D02AE24627F70005B2098 /* AppDelegate.h */,
+				934D02AF24627F70005B2098 /* AppDelegate.m */,
+				934D02B124627F70005B2098 /* SceneDelegate.h */,
+				934D02B224627F70005B2098 /* SceneDelegate.m */,
+				934D02C324627F77005B2098 /* main.m */,
+				934D02C224627F77005B2098 /* Info.plist */,
+				9303A21D246E2BF80053EE06 /* iHome.entitlements */,
+				934D02BA24627F70005B2098 /* iHome.xcdatamodeld */,
+			);
+			path = AppDelegate;
+			sourceTree = "<group>";
+		};
 		9303A21E246E2C500053EE06 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -157,17 +172,10 @@
 		934D02AD24627F70005B2098 /* iHome */ = {
 			isa = PBXGroup;
 			children = (
-				934D02AE24627F70005B2098 /* AppDelegate.h */,
-				934D02AF24627F70005B2098 /* AppDelegate.m */,
-				934D02B124627F70005B2098 /* SceneDelegate.h */,
-				934D02B224627F70005B2098 /* SceneDelegate.m */,
-				934D02C324627F77005B2098 /* main.m */,
-				934D02C224627F77005B2098 /* Info.plist */,
-				9303A21D246E2BF80053EE06 /* iHome.entitlements */,
-				934D02BA24627F70005B2098 /* iHome.xcdatamodeld */,
 				934D02BD24627F77005B2098 /* Assets.xcassets */,
 				934D02BF24627F77005B2098 /* LaunchScreen.storyboard */,
 				934D02B724627F70005B2098 /* Main.storyboard */,
+				8403AF452488B1FF000C8332 /* AppDelegate */,
 				93320D532475C3E9005E15E8 /* HomeStore */,
 				93A1768C247A2A9B0010BD40 /* RootView */,
 				93A17690247A3DED0010BD40 /* RoomView */,
@@ -455,6 +463,7 @@
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -513,6 +522,7 @@
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
@@ -573,7 +583,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_IDENTITY = "Apple Development: Seong Kweon Hong (QER62E4AS9)";
+				CODE_SIGN_IDENTITY = "Apple Development";
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 66E25664S2;
@@ -586,6 +596,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.appfish.iHomeTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=macosx*]" = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/iHome.app/iHome";
 			};
@@ -595,7 +607,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_IDENTITY = "Apple Development: Seong Kweon Hong (QER62E4AS9)";
+				CODE_SIGN_IDENTITY = "Apple Development";
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 66E25664S2;
@@ -608,6 +620,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.appfish.iHomeTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=macosx*]" = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/iHome.app/iHome";
 			};
