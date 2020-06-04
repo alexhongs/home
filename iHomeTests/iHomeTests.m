@@ -28,7 +28,7 @@
     // Use XCTAssert and related functions to verify your tests produce the correct results
     
     XCTAssert(2 + 1 == 3);
-    NSString *s = @"some string";
+    NSString *s = @"some str ing";
     XCTAssertNotNil(s);
 }
 
