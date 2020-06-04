@@ -5,11 +5,9 @@
 //  Created by Alex Hong on 6/1/20.
 //  Copyright © 2020 alexhongs. All rights reserved.
 //
-
+#import <Foundation/Foundation.h>
 #import <XCTest/XCTest.h>
-#import "../iHome/RoomView/RoomViewController.h"
-
-//#import "RoomViewController.h"
+#import "RoomViewController.h"
 
 @interface iHomeTests : XCTestCase
 
@@ -27,7 +25,11 @@
 
 - (void)testExample {
     // This is an example of a functional test case.
-    // Use XCTAssert and related functions to verify your tests produce the correct results.
+    // Use XCTAssert and related functions to verify your tests produce the correct results
+    
+    XCTAssert(2 + 1 == 3);
+    NSString *s = @"some string";
+    XCTAssertNotNil(s);
 }
 
 //- (void)testRoomViewController
